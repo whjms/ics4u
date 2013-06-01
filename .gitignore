@@ -1,4 +1,5 @@
 *.class
+*.swp
 journal.txt
 
 # Package Files #
