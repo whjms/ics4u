@@ -1,4 +1,5 @@
 import java.awt.event.*;
+import javax.swing.*;
 
 /** Manages the creation of an AssignmentCreator. Used within AssignmentTab to 
  * provide event handling for the 'Add assignment' button. 
