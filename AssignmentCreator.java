@@ -79,7 +79,36 @@ public class AssignmentCreator extends JDialog {
   private void layoutUI() {
     this.contentPane.setLayout(new BoxLayout(this.contentPane,
             BoxLayout.Y_AXIS));
-    this.mainPanel.setLayout(new GridLayout(3, 4));
+    this.mainPanel.setLayout(new GridLayout(3, 5));
+
+    // Add components to mainPanel
+    this.mainPanel.add(new JPanel());  // First column of the first row is
+                                       // blank, so an empty JPanel is used
+    // Add headers 
+    this.mainPanel.add(this.totalLabel);
+    this.mainPanel.add(this.weightingLabel);
+    // Add the first row of components. Adding the components by their
+    // category constants enables us to easily identify them from within 
+    // AssignmentCreatorAcceptController.
+    this.mainPanel.add(this.categoryLabels[Course.THINKING]);
+    this.mainPanel.add(this.totalFields[Course.THINKING]);
+    this.mainPanel.add(this.weightingFields[Course.THINKING]);
+    // Add the second row of components.
+    this.mainPanel.add(this.categoryLabels[Course.KNOWLEDGE]);
+    this.mainPanel.add(this.totalFields[Course.KNOWLEDGE]);
+    this.mainPanel.add(this.weightingFields[Course.KNOWLEDGE]);
+    // Add the third row of components
+    this.mainPanel.add(this.categoryLabels[Course.APPLICATION]);
+    this.mainPanel.add(this.totalFields[Course.APPLICATION]);
+    this.mainPanel.add(this.weightingFields[Course.APPLICATION]);
+    // Add the last row of components
+    this.mainPanel.add(this.categoryLabels[Course.THINKING]);
+    this.mainPanel.add(this.totalFields[Course.THINKING]);
+    this.mainPanel.add(this.weightingFields[Course.THINKING]);
+
+    // Add components to buttonPanel
+    this.buttonPanel.add(this.okButton);
+    this.buttonPanel.add(this.cancelButton);
   }
 
   /** Registers controllers for buttons 
