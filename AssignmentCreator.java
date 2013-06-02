@@ -30,6 +30,8 @@ public class AssignmentCreator extends JDialog {
   /** Creates an AssignmentCreator with the given Course to add an assignment 
    * to. Shows the creator window and disables the main window until the user
    * has created a course or chosen to cancel the operation. 
+   * @param course    the Course to edit 
+   * @param mainWindow the application's main window
    */
   public AssignmentCreator(Course course, JFrame mainWindow) {
     super(mainWindow, "Create Assignment", true);  // Creates a modal dialog 
