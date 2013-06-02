@@ -44,6 +44,12 @@ public class AssignmentTableModel extends AbstractTableModel {
     return this.data.get(row).get(column);
   }
 
+  /** Get the title of the specified column. Required for any table model. 
+   */
+  public String getColumnName(int col) {
+    return this.columnNames[col];
+  }
+
   /** Updates the model's data to reflect changes in the Course model, and 
    * alerts any associated JTable to update itself.
    */
