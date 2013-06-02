@@ -6,15 +6,15 @@ import javax.swing.*;
  * Created June 1, 2013
  */
 public class AssignmentTab extends JPanel {
-  private JTable assignmentTable;  // Displays assignment information 
+  private JTable table;  // Displays assignment information 
   private JScrollPane tableScroll;  // Allows user to scroll through
                                     // AssignmentTable 
   private Course course;  // Model to fetch data from
 
   // Buttons 
-  private JButton editAssignmentButton;
-  private JButton addAssignmentButton;
-  private JButton removeAssignmentButton;
+  private JButton editButton;
+  private JButton addButton;
+  private JButton removeButton;
 
   private AssignmentTableModel tableModel; // Table model that assignmentTable
                                            // uses to get data from 
@@ -23,8 +23,44 @@ public class AssignmentTab extends JPanel {
   private AssignmentEditController editController;
   private AssignmentRemoveController removeController;
 
+  /** Creates an AssignmentTab with the given Course model 
+   * @param course    the Course model to read data from 
+   */
   public AssignmentTab(Course course) {
+    super();
     this.course = course;
     this.initUI(); 
+    this.registerControllers();
+  }
+
+  /** Initializes UI components 
+   */
+  private void initUI() {
+    this.tableModel = new AssignmentTableModel(this.course);
+    this.table = new JTable(this.tableModel);
+
+    this.tableScroll = new JScrollPane(this.table);
+    this.table.setFillsViewportHeight(true);  // Makes the table fill its 
+                                              // parent container tableScroll
+    this.editButton = new JButton("Edit assignment...");
+    this.addButton = new JButton("Add assignment...");
+    this.removeButton = new JButton("Delete assignment");
+
+    JPanel buttonPanel = new JPanel();  // Contains buttons to add/remove/edit 
+                                        // assignments, all aligned on one 
+                                        // row
+    buttonPanel.setLayout(buttonPanel, BoxLayout.X_AXIS);
+    buttonPanel.add(this.editButton);
+    buttonPanel.add(this.removeButton);
+    buttonPanel.add(this.addButton);
+
+    this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+    this.add(this.tableScroll);
+    this.add(buttonPanel);    
+  }
+
+  /** Registers controllers with assignment add/edit/remove buttons 
+   */
+  private void registerControllers() {
   }
 } 
