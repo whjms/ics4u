@@ -23,6 +23,8 @@ public class AssignmentTab extends JPanel {
   private AssignmentEditController editController;
   private AssignmentRemoveController removeController;
 
-  public AssignmentTab() {
+  public AssignmentTab(Course course) {
+    this.course = course;
+    this.initUI(); 
   }
 } 
