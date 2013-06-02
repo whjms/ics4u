@@ -74,7 +74,7 @@ public class AssignmentTableModel extends AbstractTableModel {
               currentAssignment.getName(), Course.APPLICATION));
       currentRow.add(this.course.getAssignmentMean(  // Communication mean
               currentAssignment.getName(), Course.COMMUNICATION));
-      currentRow.add(this.currentAssignment.getSummative()); // Summative status
+      currentRow.add(currentAssignment.getSummative()); // Summative status
 
       this.data.add(currentRow); // Add the new row to the table
     }

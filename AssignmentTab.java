@@ -50,7 +50,7 @@ public class AssignmentTab extends JPanel {
     JPanel buttonPanel = new JPanel();  // Contains buttons to add/remove/edit 
                                         // assignments, all aligned on one 
                                         // row
-    buttonPanel.setLayout(buttonPanel, BoxLayout.X_AXIS);
+    buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
     buttonPanel.add(this.editButton);
     buttonPanel.add(this.removeButton);
     buttonPanel.add(this.addButton);
@@ -66,7 +66,7 @@ public class AssignmentTab extends JPanel {
     // Initialize controllers
     this.removeController = new RemoveController(this.course, this.table);
     this.addController = new AddController(this.course);
-    this.editController = new editController(this.course, this.table);
+    this.editController = new EditController(this.course, this.table);
     
     // Link controllers
     this.addButton.addActionListener(this.addController);
