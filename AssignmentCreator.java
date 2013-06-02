@@ -109,10 +109,20 @@ public class AssignmentCreator extends JDialog {
     // Add components to buttonPanel
     this.buttonPanel.add(this.okButton);
     this.buttonPanel.add(this.cancelButton);
+
+    // Add components to contentPane 
+    this.add(this.mainPanel);
+    this.add(this.buttonPanel);
   }
 
   /** Registers controllers for buttons 
    */
   private void registerControllers() {
+    this.okController = new AssignmentCreatorAcceptController(this.course,
+            this);
+    this.cancelController = new AssignmentCreatorCancelController(this);
+
+    this.okButton.addActionListener(this.okController);
+    this.cancelButton.addActionListener(this.cancelController);
   }
 } 
