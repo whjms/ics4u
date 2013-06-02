@@ -10,6 +10,7 @@ public class AssignmentTab extends JPanel {
   private JScrollPane tableScroll;  // Allows user to scroll through
                                     // AssignmentTable 
   private Course course;  // Model to fetch data from
+  private JFrame mainWindow; 
 
   // Buttons 
   private JButton editButton;
@@ -25,10 +26,14 @@ public class AssignmentTab extends JPanel {
 
   /** Creates an AssignmentTab with the given Course model 
    * @param course    the Course model to read data from 
+   * @param mainWindow the JFrame that serves as the main window. Used by modal
+   *                   dialogs so that it can be disabled while the dialog is 
+   *                   open
    */
-  public AssignmentTab(Course course) {
+  public AssignmentTab(Course course, JFrame mainWindow) {
     super();
     this.course = course;
+    this.mainWindow = mainWindow;
     this.initUI(); 
     this.registerControllers();
     this.update();
