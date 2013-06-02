@@ -31,6 +31,7 @@ public class AssignmentTab extends JPanel {
     this.course = course;
     this.initUI(); 
     this.registerControllers();
+    this.update();
   }
 
   /** Initializes UI components 
