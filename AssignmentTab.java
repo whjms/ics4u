@@ -59,8 +59,17 @@ public class AssignmentTab extends JPanel {
     this.add(buttonPanel);    
   }
 
-  /** Registers controllers with assignment add/edit/remove buttons 
+  /** Creates and registers controllers with assignment add/edit/remove buttons 
    */
   private void registerControllers() {
+    // Initialize controllers
+    this.removeController = new RemoveController(this.course, this.table);
+    this.addController = new AddController(this.course);
+    this.editController = new editController(this.course, this.table);
+    
+    // Link controllers
+    this.addButton.addActionListener(this.addController);
+    this.editButton.addActionListener(this.editController);
+    this.removeButton.addActionListener(this.removeController);
   }
 } 
