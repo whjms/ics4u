@@ -73,4 +73,10 @@ public class AssignmentTab extends JPanel {
     this.editButton.addActionListener(this.editController);
     this.removeButton.addActionListener(this.removeController);
   }
+
+  /** Updates components to reflect the Course's data 
+   */
+  public void update() {
+    this.tableModel.update();
+  }
 } 
