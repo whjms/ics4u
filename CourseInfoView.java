@@ -61,8 +61,10 @@ public class CourseInfoView extends JPanel {
     this.medianLabels[Course.KNOWLEDGE] = new JLabel("K/U: ");
 
     this.medianPanel = new JPanel();
-    this.medianPanel.setBorder(BorderFactory.createTitledBorder("Course Medians"));
-    this.medianPanel.setLayout(new BoxLayout(this.medianPanel, BoxLayout.Y_AXIS));
+    this.medianPanel.setBorder(BorderFactory.createTitledBorder(
+            "Course Medians"));
+    this.medianPanel.setLayout(new BoxLayout(this.medianPanel,
+            BoxLayout.Y_AXIS));
 
     // Add components
     this.medianPanel.add(this.courseMean);
@@ -111,25 +113,32 @@ public class CourseInfoView extends JPanel {
    */
   private void updateCourseInfo() {
     this.students.setText("Students: " + this.course.getStudents().size());
-    this.assignments.setText("Assignments: " + this.course.getAssignmentOutlines().size());
+    this.assignments.setText("Assignments: "
+            + this.course.getAssignmentOutlines().size());
   }
 
   /** Updates course mean info labels 
    */
   private void updateMean() {
     this.courseMean.setText("Course: " + this.course.getMean());
-    this.meanLabels[Course.COMMUNICATION].setText("CO: " + this.course.getMean(Course.COMMUNICATION));
-    this.meanLabels[Course.KNOWLEDGE].setText("K/U: " + this.course.getMean(Course.KNOWLEDGE));
-    this.meanLabels[Course.APPLICATION].setText("AP: " + this.course.getMean(Course.APPLICATION));
+    this.meanLabels[Course.COMMUNICATION].setText("CO: " 
+            + this.course.getMean(Course.COMMUNICATION));
+    this.meanLabels[Course.KNOWLEDGE].setText("K/U: "
+            + this.course.getMean(Course.KNOWLEDGE));
+    this.meanLabels[Course.APPLICATION].setText("AP: "
+            + this.course.getMean(Course.APPLICATION));
   }
 
   /** Updates course median info labels 
    */
   private void updateMedian() {
     this.courseMedian.setText("Course: " + this.course.getMedian());
-    this.medianLabels[Course.COMMUNICATION].setText("CO: " + this.course.getMedian(Course.COMMUNICATION));
-    this.medianLabels[Course.KNOWLEDGE].setText("K/U: " + this.course.getMedian(Course.KNOWLEDGE));
-    this.medianLabels[Course.APPLICATION].setText("AP: " + this.course.getMedian(Course.APPLICATION));
+    this.medianLabels[Course.COMMUNICATION].setText("CO: "
+            + this.course.getMedian(Course.COMMUNICATION));
+    this.medianLabels[Course.KNOWLEDGE].setText("K/U: " 
+            + this.course.getMedian(Course.KNOWLEDGE));
+    this.medianLabels[Course.APPLICATION].setText("AP: " 
+            + this.course.getMedian(Course.APPLICATION));
   }
 
   /** Update labels to reflect the Course's data
