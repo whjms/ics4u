@@ -7,7 +7,7 @@ public class AssignmentTableModel extends AbstractTableModel {
   private Course course;
   private ArrayList<ArrayList<Object>> data; // Data, arranged in rows
 
-  private String[] columnNames = {"Name", "Overall Mean", "K/U Mean",
+  private String[] columnNames = {"Name", "K/U Mean",
           "T/I Mean", "AP Mean", "CO Mean", "Summative"}; 
 
   /** Creates the data model, given a Course to read data from 
@@ -32,7 +32,7 @@ public class AssignmentTableModel extends AbstractTableModel {
    * @return number of columns 
    */
   public int getColumnCount() {
-    return 7; // Number of columns remains constant
+    return 6; // Number of columns remains constant
   }
 
   /** Gets the value of a specific cell. Required for any table model. 
@@ -64,8 +64,6 @@ public class AssignmentTableModel extends AbstractTableModel {
 
       // Add each column of data to the current row 
       currentRow.add(currentAssignment.getName());   // Assignment name
-      currentRow.add(this.course.getAssignmentMean(  // Overall assignment mean
-              currentAssignment.getName()));
       currentRow.add(this.course.getAssignmentMean(  // Knowledge mean
               currentAssignment.getName(), Course.K));
       currentRow.add(this.course.getAssignmentMean(  // Thinking mean
