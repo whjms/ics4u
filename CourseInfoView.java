@@ -55,10 +55,10 @@ public class CourseInfoView extends JPanel {
     // Initialize labels 
     this.courseMedian = new JLabel("Course: ");
     this.medianLabels = new JLabel[4];
-    this.medianLabels[Course.COMMUNICATION] = new JLabel("CO: ");
-    this.medianLabels[Course.THINKING] = new JLabel("T/I: ");
-    this.medianLabels[Course.APPLICATION] = new JLabel("AP: ");
-    this.medianLabels[Course.KNOWLEDGE] = new JLabel("K/U: ");
+    this.medianLabels[Course.C] = new JLabel("CO: ");
+    this.medianLabels[Course.T] = new JLabel("T/I: ");
+    this.medianLabels[Course.A] = new JLabel("AP: ");
+    this.medianLabels[Course.K] = new JLabel("K/U: ");
 
     this.medianPanel = new JPanel();
     this.medianPanel.setBorder(BorderFactory.createTitledBorder(
@@ -79,10 +79,10 @@ public class CourseInfoView extends JPanel {
     // Initialize labels 
     this.courseMean = new JLabel("Course: ");
     this.meanLabels = new JLabel[4];
-    this.meanLabels[Course.COMMUNICATION] = new JLabel("CO: ");
-    this.meanLabels[Course.THINKING] = new JLabel("T/I: ");
-    this.meanLabels[Course.APPLICATION] = new JLabel("AP: ");
-    this.meanLabels[Course.KNOWLEDGE] = new JLabel("K/U: ");
+    this.meanLabels[Course.C] = new JLabel("CO: ");
+    this.meanLabels[Course.T] = new JLabel("T/I: ");
+    this.meanLabels[Course.A] = new JLabel("AP: ");
+    this.meanLabels[Course.K] = new JLabel("K/U: ");
 
     this.meanPanel = new JPanel();
     this.meanPanel.setBorder(BorderFactory.createTitledBorder("Course Means"));
@@ -121,24 +121,24 @@ public class CourseInfoView extends JPanel {
    */
   private void updateMean() {
     this.courseMean.setText("Course: " + this.course.getMean());
-    this.meanLabels[Course.COMMUNICATION].setText("CO: " 
-            + this.course.getMean(Course.COMMUNICATION));
-    this.meanLabels[Course.KNOWLEDGE].setText("K/U: "
-            + this.course.getMean(Course.KNOWLEDGE));
-    this.meanLabels[Course.APPLICATION].setText("AP: "
-            + this.course.getMean(Course.APPLICATION));
+    this.meanLabels[Course.C].setText("CO: " 
+            + this.course.getMean(Course.C));
+    this.meanLabels[Course.K].setText("K/U: "
+            + this.course.getMean(Course.K));
+    this.meanLabels[Course.A].setText("AP: "
+            + this.course.getMean(Course.A));
   }
 
   /** Updates course median info labels 
    */
   private void updateMedian() {
     this.courseMedian.setText("Course: " + this.course.getMedian());
-    this.medianLabels[Course.COMMUNICATION].setText("CO: "
-            + this.course.getMedian(Course.COMMUNICATION));
-    this.medianLabels[Course.KNOWLEDGE].setText("K/U: " 
-            + this.course.getMedian(Course.KNOWLEDGE));
-    this.medianLabels[Course.APPLICATION].setText("AP: " 
-            + this.course.getMedian(Course.APPLICATION));
+    this.medianLabels[Course.C].setText("CO: "
+            + this.course.getMedian(Course.C));
+    this.medianLabels[Course.K].setText("K/U: " 
+            + this.course.getMedian(Course.K));
+    this.medianLabels[Course.A].setText("AP: " 
+            + this.course.getMedian(Course.A));
   }
 
   /** Update labels to reflect the Course's data

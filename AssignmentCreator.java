@@ -54,10 +54,10 @@ public class AssignmentCreator extends JDialog {
 
     // Initialize labels
     this.categoryLabels = new JLabel[4];
-    this.categoryLabels[Course.COMMUNICATION] = new JLabel("C/O:");
-    this.categoryLabels[Course.APPLICATION] = new JLabel("AP:");
-    this.categoryLabels[Course.KNOWLEDGE] = new JLabel("K/U:");
-    this.categoryLabels[Course.THINKING] = new JLabel("T/I:");
+    this.categoryLabels[Course.C] = new JLabel("C/O:");
+    this.categoryLabels[Course.A] = new JLabel("AP:");
+    this.categoryLabels[Course.K] = new JLabel("K/U:");
+    this.categoryLabels[Course.T] = new JLabel("T/I:");
 
     // Initialize text fields 
     for(int i = 0; i < 3; i++) {
@@ -92,21 +92,21 @@ public class AssignmentCreator extends JDialog {
     // Add the first row of components. Adding the components by their
     // category constants enables us to easily identify them from within 
     // AssignmentCreatorAcceptController.
-    this.mainPanel.add(this.categoryLabels[Course.THINKING]);
-    this.mainPanel.add(this.totalFields[Course.THINKING]);
-    this.mainPanel.add(this.weightingFields[Course.THINKING]);
+    this.mainPanel.add(this.categoryLabels[Course.T]);
+    this.mainPanel.add(this.totalFields[Course.T]);
+    this.mainPanel.add(this.weightingFields[Course.T]);
     // Add the second row of components.
-    this.mainPanel.add(this.categoryLabels[Course.KNOWLEDGE]);
-    this.mainPanel.add(this.totalFields[Course.KNOWLEDGE]);
-    this.mainPanel.add(this.weightingFields[Course.KNOWLEDGE]);
+    this.mainPanel.add(this.categoryLabels[Course.K]);
+    this.mainPanel.add(this.totalFields[Course.K]);
+    this.mainPanel.add(this.weightingFields[Course.K]);
     // Add the third row of components
-    this.mainPanel.add(this.categoryLabels[Course.APPLICATION]);
-    this.mainPanel.add(this.totalFields[Course.APPLICATION]);
-    this.mainPanel.add(this.weightingFields[Course.APPLICATION]);
+    this.mainPanel.add(this.categoryLabels[Course.A]);
+    this.mainPanel.add(this.totalFields[Course.A]);
+    this.mainPanel.add(this.weightingFields[Course.A]);
     // Add the last row of components
-    this.mainPanel.add(this.categoryLabels[Course.THINKING]);
-    this.mainPanel.add(this.totalFields[Course.THINKING]);
-    this.mainPanel.add(this.weightingFields[Course.THINKING]);
+    this.mainPanel.add(this.categoryLabels[Course.T]);
+    this.mainPanel.add(this.totalFields[Course.T]);
+    this.mainPanel.add(this.weightingFields[Course.T]);
 
     // Add components to buttonPanel
     this.buttonPanel.add(this.okButton);
