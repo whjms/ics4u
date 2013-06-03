@@ -127,6 +127,8 @@ public class CourseInfoView extends JPanel {
             + this.course.getMean(Course.K));
     this.meanLabels[Course.A].setText("AP: "
             + this.course.getMean(Course.A));
+    this.meanLabels[Course.T].setText("T/I: ",
+            + this.course.getMean(Course.T));
   }
 
   /** Updates course median info labels 
