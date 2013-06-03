@@ -53,6 +53,7 @@ public class AssignmentCreator extends JDialog {
     this.mainPanel.setLayout(new GridLayout(3, 4));
 
     // Initialize labels
+    this.nameLabel = new JLabel("Assignment name:");
     this.categoryLabels = new JLabel[4];
     this.categoryLabels[Course.C] = new JLabel("C/O:");
     this.categoryLabels[Course.A] = new JLabel("AP:");
@@ -64,6 +65,7 @@ public class AssignmentCreator extends JDialog {
       this.totalFields[i] = new JTextField();
       this.weightingFields[i] = new JTextField();
     }
+    this.nameField = new JTextField();
 
     // Initialize buttons 
     this.okButton = new JButton("OK");
@@ -81,10 +83,14 @@ public class AssignmentCreator extends JDialog {
   private void layoutUI() {
     this.contentPane.setLayout(new BoxLayout(this.contentPane,
             BoxLayout.Y_AXIS));
-    this.mainPanel.setLayout(new GridLayout(3, 5));
+    this.mainPanel.setLayout(new GridLayout(3, 6));
 
+    this.mainPanel.add(this.nameLabel);
+    this.mainPanel.add(this.nameField);
+    this.mainPanel.add(new JPanel());  // Last column is empty, so use an empty
+                                       // JPanel
     // Add components to mainPanel
-    this.mainPanel.add(new JPanel());  // First column of the first row is
+    this.mainPanel.add(new JPanel());  // First column of the second row is
                                        // blank, so an empty JPanel is used
     // Add headers 
     this.mainPanel.add(this.totalLabel);
