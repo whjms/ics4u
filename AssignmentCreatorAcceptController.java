@@ -46,11 +46,11 @@ public class AssignmentCreatorAcceptController {
     else
     {
       // Parse the values for totals 
-      double[] totalVals = new double[4];
-      totalVals[Course.C] = Double.parseDouble(this.totals[Course.C].getText());
-      totalVals[Course.T] = Double.parseDouble(this.totals[Course.T].getText());
-      totalVals[Course.K] = Double.parseDouble(this.totals[Course.K].getText());
-      totalVals[Course.A] = Double.parseDouble(this.totals[Course.A].getText());
+      int[] totalVals = new int[4];
+      totalVals[Course.C] = Integer.parseInt(this.totals[Course.C].getText());
+      totalVals[Course.T] = Integer.parseInt(this.totals[Course.T].getText());
+      totalVals[Course.K] = Integer.parseInt(this.totals[Course.K].getText());
+      totalVals[Course.A] = Integer.parseInt(this.totals[Course.A].getText());
 
       // Parse the values for weightings 
       double[] weightVals = new double[4];
