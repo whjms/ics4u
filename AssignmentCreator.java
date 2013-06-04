@@ -127,7 +127,7 @@ public class AssignmentCreator extends JDialog {
    */
   private void registerControllers() {
     this.okController = new AssignmentCreatorAcceptController(this.course,
-            this);
+            this, this.totalFields, this.weightingFields, this.nameField);
     this.cancelController = new AssignmentCreatorCancelController(this);
 
     this.okButton.addActionListener(this.okController);
