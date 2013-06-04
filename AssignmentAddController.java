@@ -19,6 +19,9 @@ public class AssignmentAddController implements ActionListener {
     this.mainWindow = mainWindow;
   }
 
+  /** Make an AssignmentCreator appear, disabling mainWindow
+   * @param e    the triggered event 
+   */
   public void actionPerformed(ActionEvent e) {
     AssignmentCreator creator = new AssignmentCreator(this.course,
           this.mainWindow);
