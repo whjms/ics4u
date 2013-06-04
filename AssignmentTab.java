@@ -69,8 +69,9 @@ public class AssignmentTab extends JPanel {
    */
   private void registerControllers() {
     // Initialize controllers
-    this.removeController = new RemoveController(this.course, this.table);
-    this.addController = new AddController(this.course);
+    this.removeController = new RemoveController(this.course, this.table,
+            this.tableModel);
+    this.addController = new AddController(this.course, this);
     this.editController = new EditController(this.course, this.table);
     
     // Link controllers
