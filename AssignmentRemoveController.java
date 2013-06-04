@@ -9,9 +9,10 @@ public class AssignmentRemoveController implements ActionListener {
   private JTable table;
   private AssignmentTableModel tableModel;
 
-  /** Create this handler using the given Course and JTable
+  /** Create this handler using the given Course, JTable, and table model
    * @param course    the Course model to delete an item from 
    * @param table     the JTable to read the selected value from 
+   * @param tableModel    the table's model
    */
   public AssignmentRemoveController(Course course, JTable table, 
           AssignmentTableModel tableModel) {
