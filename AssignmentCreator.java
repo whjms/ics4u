@@ -47,8 +47,6 @@ public class AssignmentCreator extends JDialog {
   private void initUI() {
     this.contentPane = new JPanel();
     this.setContentPane(this.contentPane);
-    this.contentPane.setLayout(new BoxLayout(this.contentPane,
-            BoxLayout.Y_AXIS));
 
     this.mainPanel = new JPanel();
     this.mainPanel.setLayout(new GridLayout(3, 4));
