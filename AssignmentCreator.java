@@ -36,6 +36,7 @@ public class AssignmentCreator extends JDialog {
   public AssignmentCreator(Course course, JFrame mainWindow) {
     super(mainWindow, "Create Assignment", true);  // Creates a modal dialog 
                                                    // that disables mainWindow
+    this.course = course;
     this.initUI();
     this.layoutUI();
     this.registerControllers();
