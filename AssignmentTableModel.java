@@ -19,6 +19,13 @@ public class AssignmentTableModel extends AbstractTableModel {
     this.update();
   }
   
+  /** Returns the assignment name for the specified row index 
+   * @param row    the row index of the assignment 
+   * @return       the assignment's name 
+   */
+  public String getAssignmentName(int row) {
+    return this.data.get(row)[0];
+  }
   /** Returns the number of rows of data in the table. Required for any table 
    * model.
    * @return the number of rows 

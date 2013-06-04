@@ -25,5 +25,13 @@ public class AssignmentRemoveController implements ActionListener {
    * @param e    the triggered event
    */
   public void actionPerformed(ActionEvent e) {
+    /* getSelectedRow() only returns the selected row in terms of the view, 
+     * while convertRowIndexToModel() provides the index of the selected item 
+     * in terms of the table's underlying model. 
+     */
+    int selectedIndex = this.table.convertRowIndexToModel(
+            this.table.getSelectedRow());
+    String name = this.tableModel.getAssignmentName(selectedIndex);
+    this.course.removeAssignment(name);
   }
 } 
