@@ -118,8 +118,8 @@ public class AssignmentCreator extends JDialog {
     this.buttonPanel.add(this.cancelButton);
 
     // Add components to contentPane 
-    this.add(this.mainPanel);
-    this.add(this.buttonPanel);
+    this.contentPane.add(this.mainPanel);
+    this.contentPane.add(this.buttonPanel);
   }
 
   /** Registers controllers for buttons 

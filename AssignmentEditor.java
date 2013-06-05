@@ -69,5 +69,31 @@ public class AssignmentEditor extends JDialog {
    this.contentPane.setLayout(new BoxLayout(this.contentPane,
           BoxLayout.Y_AXIS));
    this.mainPanel.setLayout(new GridLayout(3, 5));
+   
+   // Add first row of components to mainPanel 
+   this.mainPanel.add(new JPanel());  // Empty panel for spacing 
+   this.mainPanel.add(this.totalLabel);
+   this.mainPanel.add(this.weightingLabel);
+   
+   // Add second row
+   this.mainPanel.add(this.categories[Course.T]);
+   this.mainPanel.add(this.totals[Course.T]);
+   this.mainPanel.add(this.weightings[Course.T]);
+
+   // Add third row
+   this.mainPanel.add(this.categories[Course.K]);
+   this.mainPanel.add(this.totals[Course.K]);
+   this.mainPanel.add(this.weightings[Course.K]);
+
+    // Add fourth row
+   this.mainPanel.add(this.categories[Course.A]);
+   this.mainPanel.add(this.totals[Course.A]);
+   this.mainPanel.add(this.weightings[Course.A]);
+
+   // Add fifth row
+   this.mainPanel.add(this.categories[Course.C]);
+   this.mainPanel.add(this.totals[Course.C]);
+   this.mainPanel.add(this.weightings[Course.C]);
+
   }
 } 
