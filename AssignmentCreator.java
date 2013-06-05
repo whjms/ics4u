@@ -109,9 +109,9 @@ public class AssignmentCreator extends JDialog {
     this.mainPanel.add(this.totalFields[Course.A]);
     this.mainPanel.add(this.weightingFields[Course.A]);
     // Add the last row of components
-    this.mainPanel.add(this.categoryLabels[Course.T]);
-    this.mainPanel.add(this.totalFields[Course.T]);
-    this.mainPanel.add(this.weightingFields[Course.T]);
+    this.mainPanel.add(this.categoryLabels[Course.C]);
+    this.mainPanel.add(this.totalFields[Course.C]);
+    this.mainPanel.add(this.weightingFields[Course.C]);
 
     // Add components to buttonPanel
     this.buttonPanel.add(this.okButton);
