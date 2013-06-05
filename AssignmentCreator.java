@@ -25,7 +25,7 @@ public class AssignmentCreator extends JDialog {
 
   // Event handlers for ok & cancel buttons
   private AssignmentCreatorAcceptController okController;
-  private AssignmentCreatorCancelController cancelController;
+  private CancelController cancelController;
 
   /** Creates an AssignmentCreator with the given Course to add an assignment 
    * to. Shows the creator window and disables the main window until the user
@@ -129,7 +129,10 @@ public class AssignmentCreator extends JDialog {
   private void registerControllers() {
     this.okController = new AssignmentCreatorAcceptController(this.course,
             this, this.totalFields, this.weightingFields, this.nameField);
-    this.cancelController = new AssignmentCreatorCancelController(this);
+
+    JDialog parentDialog = this;  // Convert this class to a JDialog to pass 
+                                  // it to the cancelController
+    this.cancelController = new AssignmentCreatorCancelController(parentDialog);
 
     this.okButton.addActionListener(this.okController);
     this.cancelButton.addActionListener(this.cancelController);
