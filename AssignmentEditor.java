@@ -6,6 +6,7 @@ import java.awt.*;
  */
 public class AssignmentEditor extends JDialog {
   private Course course;
+
   private String name;  // Assignment name
 
   private JPanel contentPane;   // This window's content pane 
@@ -43,12 +44,28 @@ public class AssignmentEditor extends JDialog {
     this.setContentPane(this.contentPane);
 
     this.mainPanel = new JPanel();
+    
+    // Arrays used to populate text fields
+    int[] assignmentTotals = this.course.getTotals(this.name);
+    double[] assignmentWeightings = this.course.getWeightings(this.name);
 
-    // Initialize text fields 
-    for(int i = 0; i < 3; i++) {
-      this.weightings[i] = new JTextField();
-      this.totals[i] = new JTextField();
-    }
+    // Initialize text fields with the assignment's current values
+    this.totals[Course.C] = new JTextField(Integer.toString(
+            assignmentTotals[Course.C]);
+    this.totals[Course.T] = new JTextField(Integer.toString(
+            assignmentTotals[Course.T]);
+    this.totals[Course.A] = new JTextField(Integer.toString(
+            assignmentTotals[Course.A]);
+    this.totals[Course.K] = new JTextField(Integer.toString(
+            assignmentTotals[Course.K]);
+    this.weightings[Course.C] = new JTextField(Double.toString(
+            assignmentWeightings[Course.C]);
+    this.weightings[Course.T] = new JTextField(Double.toString(
+            assignmentWeightings[Course.T]);
+    this.weightings[Course.A] = new JTextField(Double.toString(
+            assignmentWeightings[Course.A]);
+    this.weightings[Course.K] = new JTextField(Double.toString(
+            assignmentWeightings[Course.K]);
 
     // Initialize labels 
     this.categories[Course.C] = new JLabel("C/O:");
