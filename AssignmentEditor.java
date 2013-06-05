@@ -105,4 +105,10 @@ public class AssignmentEditor extends JDialog {
    this.contentPane.add(this.mainPanel);
    this.contentPane.add(this.buttonPanel);
   }
+
+  /** Registers controllers for buttons 
+   */
+  private void registerControllers() { 
+    AssignmentCreatorCancelController cancelController = new AssignmentCreatorCancelController(this);
+  }
 } 
