@@ -69,6 +69,8 @@ public class AssignmentEditor extends JDialog {
    this.contentPane.setLayout(new BoxLayout(this.contentPane,
           BoxLayout.Y_AXIS));
    this.mainPanel.setLayout(new GridLayout(3, 5));
+   this.buttonPanel.setLayout(new BoxLayout(this.buttonPanel, 
+          BoxLayout.X_AXIS));
    
    // Add first row of components to mainPanel 
    this.mainPanel.add(new JPanel());  // Empty panel for spacing 
@@ -95,5 +97,12 @@ public class AssignmentEditor extends JDialog {
    this.mainPanel.add(this.totals[Course.C]);
    this.mainPanel.add(this.weightings[Course.C]);
 
+   // layout buttons 
+   this.buttonPanel.add(this.okButton);
+   this.buttonPanel.add(this.cancelButton);
+
+   // Add panels to content pane 
+   this.contentPane.add(this.mainPanel);
+   this.contentPane.add(this.buttonPanel);
   }
 } 
