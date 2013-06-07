@@ -10,7 +10,8 @@ public class AssignmentEditorAcceptController {
   private JTextField[] totals;
   private JTextField[] weightings;
   private String name;
-
+  private JCheckBox summative;
+  
   /** Creates the controller for the passed AssignmentEditor and Course.
    * @param course    the Course model to edit 
    * @param editor    the editor dialog that created this controller 
@@ -20,12 +21,13 @@ public class AssignmentEditorAcceptController {
    */
   public AssignmentEditorAcceptController(Course course, 
           AssignmentEditor editor, JTextField[] totals,
-          JTextField[] weightings, String assignmentName) {
+          JTextField[] weightings, String assignmentName, JCheckBox summative) {
     this.course = course;
     this.editor = editor;
     this.totals = totals;
     this.weightings = weightings;
     this.name = assignmentName;
+    this.summative = summative;
   }
 
   /** Get values from all fields and pass them to the Course 
@@ -45,7 +47,8 @@ public class AssignmentEditorAcceptController {
     // Tell the Course to change the assignment's values 
     this.course.setWeightings(weightingValues, this.name);
     this.course.setTotals(this.totalValues, this.name);
-
+    this.course.setAssignmentSummative(this.summative.isSelected(), this.name);
+    
     // Close the editor window 
     this.editor.close();
   }
