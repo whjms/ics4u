@@ -22,6 +22,9 @@ public class AssignmentEditor extends JDialog {
   private JButton okButton;
   private JButton cancelButton;
 
+  private JCheckBox summative;  // Check whether or not the assignment is to be
+                                // treated as summative
+  
   /** Shows the editor window for the assignment with the given name
    * @param course    the Course model to use
    * @param name      the name of the assignment to edit 
@@ -78,6 +81,8 @@ public class AssignmentEditor extends JDialog {
     // Initialize buttons 
     this.okButton = new JButton("OK");
     this.cancelButton = new JButton("Cancel");
+                                               
+    this.summative = new JCheckBox("Summative", true);
   }
 
   /** Sets up the layout for UI components 
@@ -120,6 +125,7 @@ public class AssignmentEditor extends JDialog {
 
    // Add panels to content pane 
    this.contentPane.add(this.mainPanel);
+   this.contentPane.add(this.summative);
    this.contentPane.add(this.buttonPanel);
   }
 
@@ -132,6 +138,6 @@ public class AssignmentEditor extends JDialog {
 
     AssignmentEditorAcceptController acceptController = 
             AssignmentEditorAcceptController(this.course, this, this.totals,
-            this.weightings, this.name);
+            this.weightings, this.name, this.summative);
   }
 } 

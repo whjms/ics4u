@@ -2,6 +2,7 @@
 *.swo
 *.swp
 journal.txt
+*~*
 
 # Package Files #
 *.jar
