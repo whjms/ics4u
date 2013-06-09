@@ -1,11 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 /** Sends data for a new assignment to the specified Course by reading date
  * from the given JTextFields. Closes the AssignmentCreator once the assignment 
  * is created.
  */
-public class AssignmentCreatorAcceptController {
+public class AssignmentCreatorAcceptController implements ActionListener{
   private Course course;
   private AssignmentCreator creator;
   private JTextField[] totals;
@@ -62,10 +63,10 @@ public class AssignmentCreatorAcceptController {
       this.course.createAssignment(this.nameField.getText(), 
               totalVals[Course.K], totalVals[Course.A], totalVals[Course.T],
               totalVals[Course.C]);
-      this.course.setWeightings(weightVals, this.nameField.getText());
+      this.course.setWeightings(this.nameField.getText(), weightVals);
 
       // Close the creator window
-      this.creator.close();
+      this.creator.dispose();
     }
   }
 } 

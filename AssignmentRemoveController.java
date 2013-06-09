@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 /** Removes the assignment selected within AssignmentTab from the specified
  * Course. Reads the name of the assignment to delete from the passed table.

@@ -132,7 +132,7 @@ public class AssignmentCreator extends JDialog {
 
     JDialog parentDialog = this;  // Convert this class to a JDialog to pass 
                                   // it to the cancelController
-    this.cancelController = new AssignmentCreatorCancelController(parentDialog);
+    this.cancelController = new CancelController(parentDialog);
 
     this.okButton.addActionListener(this.okController);
     this.cancelButton.addActionListener(this.cancelController);

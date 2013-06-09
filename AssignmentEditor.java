@@ -54,21 +54,21 @@ public class AssignmentEditor extends JDialog {
 
     // Initialize text fields with the assignment's current values
     this.totals[Course.C] = new JTextField(Integer.toString(
-            assignmentTotals[Course.C]);
+            assignmentTotals[Course.C]));
     this.totals[Course.T] = new JTextField(Integer.toString(
-            assignmentTotals[Course.T]);
+            assignmentTotals[Course.T]));
     this.totals[Course.A] = new JTextField(Integer.toString(
-            assignmentTotals[Course.A]);
+            assignmentTotals[Course.A]));
     this.totals[Course.K] = new JTextField(Integer.toString(
-            assignmentTotals[Course.K]);
+            assignmentTotals[Course.K]));
     this.weightings[Course.C] = new JTextField(Double.toString(
-            assignmentWeightings[Course.C]);
+            assignmentWeightings[Course.C]));
     this.weightings[Course.T] = new JTextField(Double.toString(
-            assignmentWeightings[Course.T]);
+            assignmentWeightings[Course.T]));
     this.weightings[Course.A] = new JTextField(Double.toString(
-            assignmentWeightings[Course.A]);
+            assignmentWeightings[Course.A]));
     this.weightings[Course.K] = new JTextField(Double.toString(
-            assignmentWeightings[Course.K]);
+            assignmentWeightings[Course.K]));
 
     // Initialize labels 
     this.categories[Course.C] = new JLabel("C/O:");
@@ -137,7 +137,7 @@ public class AssignmentEditor extends JDialog {
     this.cancelButton.addActionListener(cancelController);
 
     AssignmentEditorAcceptController acceptController = 
-            AssignmentEditorAcceptController(this.course, this, this.totals,
+            new AssignmentEditorAcceptController(this.course, this, this.totals,
             this.weightings, this.name, this.summative);
   }
 } 

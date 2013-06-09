@@ -1,5 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 
 /** Closes the passed JDialog when the associated component triggers
  * an event.
@@ -12,6 +13,6 @@ public class CancelController implements ActionListener {
   }
 
   public void actionPerformed(ActionEvent e) {
-    this.dialog.close();
+    this.dialog.dispose();
   }
 } 

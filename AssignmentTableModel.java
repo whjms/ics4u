@@ -24,7 +24,8 @@ public class AssignmentTableModel extends AbstractTableModel {
    * @return       the assignment's name 
    */
   public String getAssignmentName(int row) {
-    return this.data.get(row)[0];
+    return (String)this.data.get(row).get(0);  // Assignment name is the first 
+                                               // element of a row
   }
   /** Returns the number of rows of data in the table. Required for any table 
    * model.

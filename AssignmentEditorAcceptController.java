@@ -1,10 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 /** Gets data from the passed AssignmentEditor, validates it, and sends it to 
  * the Course.
  */
-public class AssignmentEditorAcceptController {
+public class AssignmentEditorAcceptController implements ActionListener {
   private Course course;
   private AssignmentEditor editor;
   private JTextField[] totals;
@@ -45,12 +46,12 @@ public class AssignmentEditorAcceptController {
       totalValues[i] = Integer.parseInt(totals[i].getText());
 
     // Tell the Course to change the assignment's values 
-    this.course.setWeightings(weightingValues, this.name);
-    this.course.setTotals(this.totalValues, this.name);
-    this.course.setAssignmentSummative(this.summative.isSelected(), this.name);
+    this.course.setWeightings(this.name, weightingValues);
+    this.course.setTotals(this.name, totalValues);
+    this.course.setAssignmentSummative(this.name, this.summative.isSelected());
     
     // Close the editor window 
-    this.editor.close();
+    this.editor.dispose();
   }
 
 } 
