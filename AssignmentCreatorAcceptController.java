@@ -46,6 +46,7 @@ public class AssignmentCreatorAcceptController implements ActionListener{
     // The assignment does not exist, so add it to the Course
     else
     {
+      try {
       // Parse the values for totals 
       int[] totalVals = new int[4];
       totalVals[Course.C] = Integer.parseInt(this.totals[Course.C].getText());
@@ -67,6 +68,10 @@ public class AssignmentCreatorAcceptController implements ActionListener{
 
       // Close the creator window
       this.creator.dispose();
+      }
+      catch(NumberFormatException ex) {
+        // Do nothing if one of the input boxes has invalid input 
+      }
     }
   }
 } 
