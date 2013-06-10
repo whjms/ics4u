@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.*;
 import java.awt.*;
 
 /** A window that lets the user specify a new assignment's properties,
@@ -8,20 +9,20 @@ public class AssignmentCreator extends JDialog {
   private Course course;
 
   private JLabel nameLabel; // Instructs user to enter assignment name
-  private JTextField nameField; // Field for assignment name entry
+  private JTextField nameField = new JTextField(); // Field for assignment name entry
 
-  private JPanel mainPanel;  // Contains labels and entry fields
-  private JLabel[] categoryLabels; // Labels that specify mark category names
-  private JTextField[] totalFields;  // Text fields for category totals
-  private JTextField[] weightingFields;  // Text fields for category weightings
+  private JPanel mainPanel = new JPanel();  // Contains labels and entry fields
+  private JLabel[] categoryLabels = new JLabel[4]; // Labels that specify mark category names
+  private JTextField[] totalFields = new JTextField[4];  // Text fields for category totals
+  private JTextField[] weightingFields = new JTextField[4];  // Text fields for category weightings
   private JLabel totalLabel;  // Heading for total fields
-  private JLabel weightingLabel;  // Heading for weighting fields
+  private JLabel weightingLabel; // Heading for weighting fields
 
   private JPanel buttonPanel;  // Contains buttons
   private JButton okButton;
   private JButton cancelButton;
 
-  private JPanel contentPane;  // Main panel for this window
+  private JPanel contentPane; // Main panel for this window
 
   // Event handlers for ok & cancel buttons
   private AssignmentCreatorAcceptController okController;
@@ -40,6 +41,8 @@ public class AssignmentCreator extends JDialog {
     this.initUI();
     this.layoutUI();
     this.registerControllers();
+    this.pack();
+    this.setVisible(true);
   }
 
   /** Initializes UI components
@@ -47,9 +50,6 @@ public class AssignmentCreator extends JDialog {
   private void initUI() {
     this.contentPane = new JPanel();
     this.setContentPane(this.contentPane);
-
-    this.mainPanel = new JPanel();
-    this.mainPanel.setLayout(new GridLayout(3, 4));
 
     // Initialize labels
     this.nameLabel = new JLabel("Assignment name:");
@@ -60,7 +60,7 @@ public class AssignmentCreator extends JDialog {
     this.categoryLabels[Course.T] = new JLabel("T/I:");
 
     // Initialize text fields 
-    for(int i = 0; i < 3; i++) {
+    for(int i = 0; i <= 3; i++) {
       this.totalFields[i] = new JTextField();
       this.weightingFields[i] = new JTextField();
     }
@@ -82,9 +82,10 @@ public class AssignmentCreator extends JDialog {
   private void layoutUI() {
     this.contentPane.setLayout(new BoxLayout(this.contentPane,
             BoxLayout.Y_AXIS));
-    this.mainPanel.setLayout(new GridLayout(3, 6));
+    this.contentPane.setBorder(new EmptyBorder(10, 10, 10, 10)); // 10px padding
+    this.mainPanel.setLayout(new GridLayout(6, 3));
     this.buttonPanel.setLayout(new BoxLayout(this.buttonPanel,
-            BoxLayout.Y_AXIS));
+            BoxLayout.X_AXIS));
 
     this.mainPanel.add(this.nameLabel);
     this.mainPanel.add(this.nameField);

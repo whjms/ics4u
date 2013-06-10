@@ -24,10 +24,7 @@ public class CourseInfoView extends JPanel {
   // 'Medians' section
   private JPanel medianPanel;
   private JLabel courseMedian;
-  private JLabel kMedian; // Knowledge
-  private JLabel cMedian; // Communication
-  private JLabel tMedian; // Thinking
-  private JLabel aMedian; // Application
+  private JLabel[] medianLabels;
   
   public CourseInfoView(Course course) { 
     super();
@@ -127,7 +124,7 @@ public class CourseInfoView extends JPanel {
             + this.course.getMean(Course.K));
     this.meanLabels[Course.A].setText("AP: "
             + this.course.getMean(Course.A));
-    this.meanLabels[Course.T].setText("T/I: ",
+    this.meanLabels[Course.T].setText("T/I: "
             + this.course.getMean(Course.T));
   }
 
@@ -141,6 +138,8 @@ public class CourseInfoView extends JPanel {
             + this.course.getMedian(Course.K));
     this.medianLabels[Course.A].setText("AP: " 
             + this.course.getMedian(Course.A));
+    this.medianLabels[Course.T].setText("T/I: "
+            + this.course.getMedian(Course.T));
   }
 
   /** Update labels to reflect the Course's data
