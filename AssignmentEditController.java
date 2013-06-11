@@ -34,8 +34,10 @@ public class AssignmentEditController implements ActionListener {
     // The index of the selected row, relative to the table's model
     int selectedIndex = this.table.convertRowIndexToModel(
             this.table.getSelectedRow());
-    String assignmentName = this.tableModel.getAssignmentName(selectedIndex);
-    AssignmentEditor editor = new AssignmentEditor(this.course, assignmentName,
-            this.mainWindow);
+    if(selectedIndex != -1) {
+         String assignmentName = this.tableModel.getAssignmentName(selectedIndex);
+         AssignmentEditor editor = new AssignmentEditor(this.course, assignmentName,
+                 this.mainWindow);
+    }
   }
 } 

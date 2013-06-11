@@ -16,7 +16,7 @@ public class AssignmentTableModel extends AbstractTableModel {
   public AssignmentTableModel(Course course) {
     this.course = course;
     this.data = new ArrayList<ArrayList<Object>>();
-    this.update();
+    //this.update();
   }
   
   /** Returns the assignment name for the specified row index 
@@ -24,8 +24,14 @@ public class AssignmentTableModel extends AbstractTableModel {
    * @return       the assignment's name 
    */
   public String getAssignmentName(int row) {
-    return (String)this.data.get(row).get(0);  // Assignment name is the first 
-                                               // element of a row
+    String name = "";
+    try {
+         name = (String)this.data.get(row).get(0); // Assignment name is first element of row
+    }
+    catch(ArrayIndexOutOfBoundsException e) {
+    }
+    
+    return name;
   }
   /** Returns the number of rows of data in the table. Required for any table 
    * model.
@@ -68,7 +74,7 @@ public class AssignmentTableModel extends AbstractTableModel {
     for(int i = 0; i < this.course.getAssignmentOutlines().size(); i++) {
       AssignmentOutline currentAssignment = this.course.
               getAssignmentOutlines().get(i);
-      ArrayList<Object> currentRow = this.data.get(i);
+      ArrayList<Object> currentRow = new ArrayList<Object>();
 
       // Add each column of data to the current row 
       currentRow.add(currentAssignment.getName());   // Assignment name

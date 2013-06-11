@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import javax.swing.border.*;
 
 /** A modal dialog that provides the user methods to edit an assignment's 
  * totals and weightings
@@ -12,9 +13,9 @@ public class AssignmentEditor extends JDialog {
   private JPanel contentPane;   // This window's content pane 
   private JPanel mainPanel;     // Panel that contains labels and fields for 
                                 // data entry
-  private JLabel[] categories;  // Labels used to identify each category 
-  private JTextField[] weightings;  // Fields for user to enter weightings 
-  private JTextField[] totals;   // Fields for user to enter category totals 
+  private JLabel[] categories = new JLabel[4];  // Labels used to identify each category 
+  private JTextField[] weightings = new JTextField[4];  // Fields for user to enter weightings 
+  private JTextField[] totals = new JTextField[4];   // Fields for user to enter category totals 
 
   private JLabel totalLabel;    // Heading for totals section 
   private JLabel weightingLabel;  // Heading for weightings section
@@ -38,6 +39,8 @@ public class AssignmentEditor extends JDialog {
     this.initUI();
     this.layoutUI();
     this.registerControllers();
+    this.pack();
+    this.setVisible(true);
   }
 
   /** Initialize UI components
@@ -82,7 +85,9 @@ public class AssignmentEditor extends JDialog {
     this.okButton = new JButton("OK");
     this.cancelButton = new JButton("Cancel");
                                                
-    this.summative = new JCheckBox("Summative", true);
+    this.summative = new JCheckBox("Summative", this.course.getAssignmentSummative(this.name));
+    
+    this.buttonPanel = new JPanel();
   }
 
   /** Sets up the layout for UI components 
@@ -90,7 +95,7 @@ public class AssignmentEditor extends JDialog {
   private void layoutUI() {
    this.contentPane.setLayout(new BoxLayout(this.contentPane,
           BoxLayout.Y_AXIS));
-   this.mainPanel.setLayout(new GridLayout(3, 5));
+   this.mainPanel.setLayout(new GridLayout(6, 3));
    this.buttonPanel.setLayout(new BoxLayout(this.buttonPanel, 
           BoxLayout.X_AXIS));
    
@@ -127,6 +132,7 @@ public class AssignmentEditor extends JDialog {
    this.contentPane.add(this.mainPanel);
    this.contentPane.add(this.summative);
    this.contentPane.add(this.buttonPanel);
+   this.contentPane.setBorder(new EmptyBorder(10, 10, 10, 10)); //10px editing
   }
 
   /** Registers controllers for buttons 
@@ -139,5 +145,6 @@ public class AssignmentEditor extends JDialog {
     AssignmentEditorAcceptController acceptController = 
             new AssignmentEditorAcceptController(this.course, this, this.totals,
             this.weightings, this.name, this.summative);
+    this.okButton.addActionListener(acceptController);
   }
 } 

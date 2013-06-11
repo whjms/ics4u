@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 /** A panel that contains labels that display basic course info, including 
@@ -84,7 +85,7 @@ public class CourseInfoView extends JPanel {
     this.meanPanel = new JPanel();
     this.meanPanel.setBorder(BorderFactory.createTitledBorder("Course Means"));
     this.meanPanel.setLayout(new BoxLayout(this.meanPanel, BoxLayout.Y_AXIS));
-
+    
     // Add components
     this.meanPanel.add(this.courseMean);
     for(JLabel label : this.meanLabels) {
@@ -144,7 +145,7 @@ public class CourseInfoView extends JPanel {
 
   /** Update labels to reflect the Course's data
    */
-  private void update() {
+  public void update() {
     this.updateCourseInfo();
     this.updateMean();
     this.updateMedian();
