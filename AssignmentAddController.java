@@ -3,6 +3,7 @@ import javax.swing.*;
 
 /** Manages the creation of an AssignmentCreator. Used within AssignmentTab to 
  * provide event handling for the 'Add assignment' button. 
+ * @author Qasim Ali
  */
 public class AssignmentAddController implements ActionListener {
   private Course course; // Course to pass to the AssignmentCreator

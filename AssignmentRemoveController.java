@@ -4,6 +4,7 @@ import java.awt.event.*;
 
 /** Removes the assignment selected within AssignmentTab from the specified
  * Course. Reads the name of the assignment to delete from the passed table.
+ * @author Qasim Ali
  */
 public class AssignmentRemoveController implements ActionListener {
   private Course course;

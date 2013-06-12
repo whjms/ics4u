@@ -4,6 +4,7 @@ import java.awt.event.*;
 
 /** Gets data from the passed AssignmentEditor, validates it, and sends it to 
  * the Course.
+ * @author Qasim Ali
  */
 public class AssignmentEditorAcceptController implements ActionListener {
   private Course course;

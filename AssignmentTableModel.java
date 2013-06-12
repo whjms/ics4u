@@ -2,6 +2,7 @@ import javax.swing.table.*;
 import java.util.*;
 
 /** A data model used by the table within AssignmentTab. 
+ * @author Qasim Ali
  */
 public class AssignmentTableModel extends AbstractTableModel {
   private Course course;

@@ -4,6 +4,7 @@ import javax.swing.border.*;
 
 /** A modal dialog that provides the user methods to edit an assignment's 
  * totals and weightings
+ * @author Qasim Ali
  */
 public class AssignmentEditor extends JDialog {
   private Course course;

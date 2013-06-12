@@ -4,6 +4,7 @@ import java.awt.event.*;
 
 /** Makes an AssignmentEditor appear for the currently selected row on the 
  * assignment table.
+ * @author Qasim Ali
  */
 public class AssignmentEditController implements ActionListener {
   private Course course;

@@ -4,6 +4,7 @@ import java.awt.*;
 
 /** A window that lets the user specify a new assignment's properties,
  * including its name, totals for each category, and weightings
+ * @author Qasim Ali
  */
 public class AssignmentCreator extends JDialog {
   private Course course;

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 /** A panel that contains labels that display basic course info, including 
   * means, medians, and student/assignment info
-  * Created May 30, 2013
   * @author Qasim Ali
   */
 public class CourseInfoView extends JPanel {
@@ -21,7 +20,7 @@ public class CourseInfoView extends JPanel {
   private JLabel courseMean;
   private JLabel[] meanLabels; // Contains labels that display means for each
                                // category
-
+    
   // 'Medians' section
   private JPanel medianPanel;
   private JLabel courseMedian;
