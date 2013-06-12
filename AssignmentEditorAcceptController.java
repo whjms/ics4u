@@ -37,12 +37,12 @@ public class AssignmentEditorAcceptController implements ActionListener {
   public void actionPerformed(ActionEvent e) {
     // Create a list of new values for the weightings from the weighting fields
     double[] weightingValues = new double[4];
-    for(int i = 0; i < 3; i++) 
+    for(int i = 0; i < 4; i++) 
       weightingValues[i] = Double.parseDouble(weightings[i].getText());
-
+    
     // Create a list of new totals 
     int[] totalValues = new int[4];
-    for(int i = 0; i < 3; i++)
+    for(int i = 0; i < 4; i++)
       totalValues[i] = Integer.parseInt(totals[i].getText());
 
     // Tell the Course to change the assignment's values 
