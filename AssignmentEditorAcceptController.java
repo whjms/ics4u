@@ -36,23 +36,28 @@ public class AssignmentEditorAcceptController implements ActionListener {
    * @param e    the triggered event 
    */
   public void actionPerformed(ActionEvent e) {
-    // Create a list of new values for the weightings from the weighting fields
-    double[] weightingValues = new double[4];
-    for(int i = 0; i < 4; i++) 
-      weightingValues[i] = Double.parseDouble(weightings[i].getText());
+    try {
+      // Create a list of new values for the weightings from the weighting fields
+      double[] weightingValues = new double[4];
+      for(int i = 0; i < 4; i++) 
+       weightingValues[i] = Double.parseDouble(weightings[i].getText());
     
-    // Create a list of new totals 
-    int[] totalValues = new int[4];
-    for(int i = 0; i < 4; i++)
-      totalValues[i] = Integer.parseInt(totals[i].getText());
+      // Create a list of new totals 
+      int[] totalValues = new int[4];
+      for(int i = 0; i < 4; i++)
+       totalValues[i] = Integer.parseInt(totals[i].getText());
 
-    // Tell the Course to change the assignment's values 
-    this.course.setWeightings(this.name, weightingValues);
-    this.course.setTotals(this.name, totalValues);
-    this.course.setAssignmentSummative(this.name, this.summative.isSelected());
+      // Tell the Course to change the assignment's values 
+      this.course.setWeightings(this.name, weightingValues);
+      this.course.setTotals(this.name, totalValues);
+      this.course.setAssignmentSummative(this.name, this.summative.isSelected());
     
-    // Close the editor window 
-    this.editor.dispose();
+      // Close the editor window 
+      this.editor.dispose();
+    }
+    catch(NumberFormatException ex) {
+      // One of the text fields' contents could not be parsed, so do nothing
+    }
   }
 
 } 
