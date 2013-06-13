@@ -44,7 +44,7 @@ public class AssignmentEditorAcceptController implements ActionListener {
 
         // Make sure weightings are >= 0
         if(weightingValues[i] < 0) 
-          throw new NumberFieldException(weightingValues[i], 
+          throw new NumberFieldException((int)weightingValues[i], 
                   "category weightings");
       }
     

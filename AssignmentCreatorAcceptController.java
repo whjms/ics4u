@@ -68,6 +68,12 @@ public class AssignmentCreatorAcceptController implements ActionListener{
       weightVals[Course.K] = Double.parseDouble(this.weightings[Course.K].getText());
       weightVals[Course.A] = Double.parseDouble(this.weightings[Course.A].getText());
 
+      // Make sure weightings are >= 0
+      for(double i : weightVals) {
+        if(i < 0)
+          throw new NumberFieldException((int)i, "category weightings");
+      }
+
       this.course.createAssignment(this.nameField.getText(), 
               totalVals[Course.K], totalVals[Course.A], totalVals[Course.T],
               totalVals[Course.C], weightVals);
@@ -77,6 +83,11 @@ public class AssignmentCreatorAcceptController implements ActionListener{
       }
       catch(NumberFormatException ex) {
         // Do nothing if one of the input boxes has invalid input 
+      }
+      catch(NumberFieldException ex) {
+        // Alert the user 
+        JOptionPane.showMessageDialog(this.creator, ex.toString(),
+                "Error creating assignment", JOptionPane.ERROR_MESSAGE);
       }
     }
   }
