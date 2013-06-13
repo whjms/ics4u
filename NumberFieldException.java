@@ -17,7 +17,7 @@ public class NumberFieldException extends Exception {
   }
 
   public String toString() {
-    return "Error reading " + this.valueName + ":. \'" + this.value 
+    return "Error reading " + this.valueName + ": \'" + this.value 
             + "\' is not a valid value.";
   }
 } 
