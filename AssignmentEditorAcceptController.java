@@ -68,7 +68,7 @@ public class AssignmentEditorAcceptController implements ActionListener {
     catch(NumberFormatException ex) {
       // One of the text fields' contents could not be parsed, so do nothing
     }
-    catch(TotalFieldException ex) {
+    catch(NumberFieldException ex) {
       // Let the user know what they did wrong 
       JOptionPane.showMessageDialog(this.editor, ex.toString(), 
               "Error editing assignment", JOptionPane.ERROR_MESSAGE);
