@@ -44,8 +44,12 @@ public class AssignmentEditorAcceptController implements ActionListener {
     
       // Create a list of new totals 
       int[] totalValues = new int[4];
-      for(int i = 0; i < 4; i++)
+      for(int i = 0; i < 4; i++) {
        totalValues[i] = Integer.parseInt(totals[i].getText());
+
+       if(totalValues[i] <= 0) // Ensure values for all fields are sane 
+        throw new TotalFieldException(totalValues[i]);
+      }
 
       // Tell the Course to change the assignment's values 
       this.course.setWeightings(this.name, weightingValues);
@@ -57,6 +61,11 @@ public class AssignmentEditorAcceptController implements ActionListener {
     }
     catch(NumberFormatException ex) {
       // One of the text fields' contents could not be parsed, so do nothing
+    }
+    catch(TotalFieldException ex) {
+      // Let the user know what they did wrong 
+      JOptionPane.showMessageDialog(this.editor, ex.toString(), 
+              "Error editing assignment", JOptionPane.ERROR_MESSAGE);
     }
   }
 
