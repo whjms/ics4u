@@ -39,8 +39,14 @@ public class AssignmentEditorAcceptController implements ActionListener {
     try {
       // Create a list of new values for the weightings from the weighting fields
       double[] weightingValues = new double[4];
-      for(int i = 0; i < 4; i++) 
-       weightingValues[i] = Double.parseDouble(weightings[i].getText());
+      for(int i = 0; i < 4; i++) {
+        weightingValues[i] = Double.parseDouble(weightings[i].getText());
+
+        // Make sure weightings are >= 0
+        if(weightingValues[i] < 0) 
+          throw new NumberFieldException(weightingValues[i], 
+                  "category weightings");
+      }
     
       // Create a list of new totals 
       int[] totalValues = new int[4];
@@ -48,7 +54,7 @@ public class AssignmentEditorAcceptController implements ActionListener {
        totalValues[i] = Integer.parseInt(totals[i].getText());
 
        if(totalValues[i] <= 0) // Ensure values for all fields are sane 
-        throw new TotalFieldException(totalValues[i]);
+        throw new NumberFieldException(totalValues[i], "category totals");
       }
 
       // Tell the Course to change the assignment's values 
