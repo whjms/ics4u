@@ -23,7 +23,29 @@ public class CourseWeightingAcceptController implements ActionListener {
     this.editor = editor;
   }
   
-  public void ActionPerformed(ActionEvent e) {
+  public void actionPerformed(ActionEvent e) {
+    try {
+      // Create a list of weighting values
+      int[] weights = new int[4];
+      
+      for(int i = 0; i < 4; i++) {
+        weights[i] = Integer.parseInt(fields[i].getText());
+        
+        // Make sure weightings are >= 0
+        if(weights[i] < 0)
+          throw new NumberFieldException(weights[i], "course weightings");
+      }
+    }
+    catch(NumberFormatException ex) {
+      // Alert the user if a value cannot be parsed
+      JOptionPane.showMessageDialog(this.editor, "Error parsing course "
+              + "weightings. Ensure all values are whole numbers.", 
+              "Error editing course", JOptionPane.ERROR_MESSAGE);
+    }
+    catch(NumberFieldException ex) {
+      JOptionPane.showMessageDialog(this.editor, ex.toString(),
+              "Error editing course", JOptionPane.ERROR_MESSAGE);
+    }
   }
 }
 

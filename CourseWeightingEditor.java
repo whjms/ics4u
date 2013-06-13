@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.border.*;
+import javax.swing.border.*;
 
 /** A dialog that allows the user to edit a course's weightings for each
  * category
