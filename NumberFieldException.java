@@ -9,7 +9,7 @@ public class NumberFieldException extends Exception {
   /** Creates this object with the specified value
    * @param value    the value of the text field 
    * @param valueName   the purpose of the variable that is read from the field
-   *                    (i.e. 'category total' or 'category mark'
+   *                    (i.e. 'category total' or 'category mark')
    */
   public NumberFieldException(int value, String valueName) {
     this.value = value;
