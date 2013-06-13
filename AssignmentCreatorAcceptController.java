@@ -55,6 +55,12 @@ public class AssignmentCreatorAcceptController implements ActionListener{
       totalVals[Course.K] = Integer.parseInt(this.totals[Course.K].getText());
       totalVals[Course.A] = Integer.parseInt(this.totals[Course.A].getText());
 
+      // Make sure totals are > 0
+      for(int i : totalVals) {
+        if(i <= 0)
+          throw new NumberFieldException(i, "category totals");
+      }
+    
       // Parse the values for weightings 
       double[] weightVals = new double[4];
       weightVals[Course.C] = Double.parseDouble(this.weightings[Course.C].getText());
