@@ -11,7 +11,7 @@ public class NumberFieldException extends Exception {
    * @param valueName   the purpose of the variable that is read from the field
    *                    (i.e. 'category total' or 'category mark'
    */
-  public TotalFieldException(int value, String valueName) {
+  public NumberFieldException(int value, String valueName) {
     this.value = value;
     this.valueName = valueName;
   }
