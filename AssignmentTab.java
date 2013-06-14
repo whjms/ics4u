@@ -43,6 +43,7 @@ public class AssignmentTab extends JPanel {
   private void initUI() {
     this.tableModel = new AssignmentTableModel(this.course);
     this.table = new JTable(this.tableModel);
+    this.table.setAutoCreateRowSorter(true);
 
     this.tableScroll = new JScrollPane(this.table);
     this.table.setFillsViewportHeight(true);  // Makes the table fill its 
