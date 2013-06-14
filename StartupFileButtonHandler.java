@@ -6,7 +6,7 @@ import java.io.*;
  * StartupWindow
  * @author Qasim Ali
  */
- public class StartupButtonHandler implements ActionListener {
+ public class StartupFileButtonHandler implements ActionListener {
   private JTextField fileName;   // The textfield that will display the file
                                 // name in StartupWindow
   private StartupWindow window;  // Window that contains the file chooser button
@@ -14,7 +14,7 @@ import java.io.*;
   /** Creates this handler
    * @param field    the textfield that will show the selecte file's name
    */
-  public StartupButtonHandler(JTextField field, StartupWindow window) {
+  public StartupFileButtonHandler(JTextField field, StartupWindow window) {
     this.fileName = field;
     this.window = window;
   }
