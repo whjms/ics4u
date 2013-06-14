@@ -29,6 +29,6 @@ import java.io.*;
                                                        // StartupWindow
     // Only alter the text field if the user clicked 'OK' on the file chooser
     if(result == JFileChooser.APPROVE_OPTION)
-      this.fileName.setText(chooser.getSelectedFile().getName());
+      this.fileName.setText(chooser.getSelectedFile().getPath());
   }
  }
