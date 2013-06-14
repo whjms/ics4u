@@ -18,7 +18,7 @@ public class CourseWeightingEditor extends JDialog {
    * @param course    the course to edit 
    */
   public CourseWeightingEditor(Course course, MainWindow mw) {
-    super(mw, "Editing " + this.course.getCode(), true);
+    super(mw, "Editing " + course.getCode(), true);
     this.course = course;
     
     this.initUI();
@@ -45,14 +45,14 @@ public class CourseWeightingEditor extends JDialog {
     this.categoryLabels[Course.K] = new JLabel("K/U:");
     
     // Initialize fields with values from the course
-    this.categoryFields[Course.C] = new JTextField(Integer.toString(
+    /*this.categoryFields[Course.C] = new JTextField(Integer.toString(
             this.course.getCourseWeightings(Course.C)));
     this.categoryFields[Course.T] = new JTextField(Integer.toString(
             this.course.getCourseWeightings(Course.T)));
     this.categoryFields[Course.A] = new JTextField(Integer.toString(
             this.course.getCourseWeightings(Course.A)));
     this.categoryFields[Course.K] = new JTextField(Integer.toString(
-            this.course.getCourseWeightings(Course.K)));
+            this.course.getCourseWeightings(Course.K)));*/
             
     this.okButton = new JButton("OK");
   }
@@ -84,7 +84,7 @@ public class CourseWeightingEditor extends JDialog {
   private void registerControllers() {
     CourseWeightingAcceptController okController = 
             new CourseWeightingAcceptController(this.course,
-                    this.categoryFields);
+                    this.categoryFields, this);
     
     this.okButton.addActionListener(okController);
   }
