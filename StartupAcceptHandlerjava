@@ -1,0 +1,16 @@
+import javax.swing.*;
+import java.awt.event.*;
+
+/** Either creates a new course based on the user's chosen course code or gets
+ * one from FileManager based on the chosen course file's name when the user
+ * clicks the 'ok' button in StartupWindow
+ */
+public class StartupAcceptHandler implements ActionListener {
+  private JRadioButton loadButton;  // Radio button that user selects to laod
+                                    // course
+  private JTextField fileField;  // Field that contains the selected course's
+                                 // filename
+  private JTextField courseField;  // Field that contains the new course's code
+  private StartupWindow window;  // Window that created this handler
+  /** Creates t                                 
+}
