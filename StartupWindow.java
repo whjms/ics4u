@@ -34,6 +34,10 @@ import javax.swing.border.*;
      this.pack();
      // This window will only be closed when the user clicks the 'ok' button
      this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+     
+     // Assume that the user wants to load a course
+     this.disableNew();
+     
      this.setVisible(true);
    }
    
@@ -48,7 +52,8 @@ import javax.swing.border.*;
       this.loadCoursePanel = new JPanel();
       
       // Initialize buttons
-      this.loadButton = new JRadioButton("Load course");
+      this.loadButton = new JRadioButton("Load course", true); // Selected by 
+                                                               // default
       this.newButton = new JRadioButton("New course");
       this.group = new ButtonGroup();
       this.group.add(loadButton);
@@ -57,10 +62,10 @@ import javax.swing.border.*;
       this.okButton = new JButton("OK");
       
       // Initialize text fields
-      this.fileName = new JTextField("       ");
+      this.fileName = new JTextField();
       this.fileName.setEditable(false);  // User can only change filename by
                                          // opening file chooser dialog
-      this.courseCode = new JTextField("      ");
+      this.courseCode = new JTextField();
       
       // Initialize labels
       this.codeLabel = new JLabel("Course code:");
@@ -102,6 +107,8 @@ import javax.swing.border.*;
      * button
      */
     private void registerControllers() {
+      this.loadButton.addActionListener(new StartupButtonHandler(this.loadButton, this));
+      this.newButton.addActionListener(new StartupButtonHandler(this.newButton, this));
     }
     
     /** Disable all components within the loadCoursePanel and enable 
@@ -110,6 +117,7 @@ import javax.swing.border.*;
     public void disableLoad() {
       this.fileButton.setEnabled(false);
       this.courseCode.setEnabled(true);
+      this.codeLabel.setEnabled(true);
     }
     
     /** Disable all components within the newCoursePanel ande enable components
@@ -117,6 +125,7 @@ import javax.swing.border.*;
      */
     public void disableNew() {
       this.courseCode.setEnabled(false);
+      this.codeLabel.setEnabled(false);
       this.fileButton.setEnabled(true);
     }
  }
