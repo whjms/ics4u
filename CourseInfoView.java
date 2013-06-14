@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import javax.swing.border.*;
 
 /** A panel that contains labels that display basic course info, including 
   * means, medians, and student/assignment info
@@ -62,12 +63,22 @@ public class CourseInfoView extends JPanel {
             "Course Medians"));
     this.medianPanel.setLayout(new BoxLayout(this.medianPanel,
             BoxLayout.Y_AXIS));
-
+            
+    /* Ensure that the labels are in the center of the panel (adding the 
+     * RigidArea to meanPanel misaligns them somehow)
+     */
+    for(int i = 0; i < 4; i++) {
+      this.medianLabels[i].setAlignmentX(Component.CENTER_ALIGNMENT);
+    }
+    this.courseMean.setAlignmentX(Component.CENTER_ALIGNMENT);
+    
     // Add components
     this.medianPanel.add(this.courseMean);
     for(JLabel label : this.medianLabels) {
       this.medianPanel.add(label);
     }
+    // Empty space used to prevent the panel's title from being cut off
+    this.medianPanel.add(Box.createRigidArea(new Dimension(125, 0)));
   }
 
   /** Initialize and add components for mean section
@@ -85,11 +96,20 @@ public class CourseInfoView extends JPanel {
     this.meanPanel.setBorder(BorderFactory.createTitledBorder("Course Means"));
     this.meanPanel.setLayout(new BoxLayout(this.meanPanel, BoxLayout.Y_AXIS));
     
+    /* Ensure that the labels are in the center of the panel (adding the 
+     * RigidArea to meanPanel misaligns them somehow)
+     */
+    for(int i = 0; i < 4; i++) {
+      this.meanLabels[i].setAlignmentX(Component.CENTER_ALIGNMENT);
+    }
     // Add components
     this.meanPanel.add(this.courseMean);
     for(JLabel label : this.meanLabels) {
       this.meanPanel.add(label);
     }
+    
+    // Empty space used to prevent the panel's title from being cut off
+    this.meanPanel.add(Box.createRigidArea(new Dimension(125, 0)));
   }
 
   /** Initializles and adds components for infoPanel
@@ -101,6 +121,7 @@ public class CourseInfoView extends JPanel {
     this.assignments = new JLabel("Assignments: ");
 
     this.infoPanel.setLayout(new BoxLayout(this.infoPanel, BoxLayout.Y_AXIS));
+    this.infoPanel.setBorder(new EmptyBorder(10, 10, 10, 10)); // 10px padding
     this.infoPanel.add(this.nameLabel);
     this.infoPanel.add(this.students);
     this.infoPanel.add(this.assignments);
@@ -112,6 +133,7 @@ public class CourseInfoView extends JPanel {
     this.students.setText("Students: " + this.course.getStudents().size());
     this.assignments.setText("Assignments: "
             + this.course.getAssignmentOutlines().size());
+    this.nameLabel.setText("Course code: " + this.course.getCode());
   }
 
   /** Updates course mean info labels 
