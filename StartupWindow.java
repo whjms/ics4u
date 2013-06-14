@@ -10,6 +10,8 @@ import javax.swing.border.*;
    private JPanel newCoursePanel; // Contains components for creating new course
    private JPanel loadCoursePanel; // Contains components for loading course
    private JPanel contentPane;
+   private JPanel mainPanel;  // Contains all components except for ok button
+   
    private JLabel welcomeLabel;  // Provides instructions for the user
    private JLabel codeLabel;  // Instructs the user to enter course code
    
@@ -24,9 +26,12 @@ import javax.swing.border.*;
    private JButton okButton;  // Allows the user to confirm and close the window
    private JButton fileButton;  // Allows the user to select a file
    
-   private JPanel mainPanel;  // Contains all components except for ok button
-   
+   private Course course;  // The loaded or created course, set by the
+                           // handler associated with the OK button
+
    public StartupWindow() {
+     this.course = null;
+     
      super("GRADEschool 2K13");
      this.initUI();
      this.layoutUI();
@@ -69,8 +74,8 @@ import javax.swing.border.*;
       
       // Initialize labels
       this.codeLabel = new JLabel("Course code:");
-      this.welcomeLabel = new JLabel("<html>Welcome to GRADEschool 2K13. Please "
-              + "load an existing course or create a new one.</html>");
+      this.welcomeLabel = new JLabel("Welcome to GRADEschool 2K13. Please "
+              + "load an existing course or create a new one.");
     }
     
     /** Layout UI components
@@ -97,7 +102,8 @@ import javax.swing.border.*;
       this.welcomeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
       
       this.contentPane.setBorder(new EmptyBorder(10,10,10,10)); // 10px padding
-      this.mainPanel.setBorder(new EmptyBorder(0,0,10,0)); // Add 10px gap on bottom
+      this.mainPanel.setBorder(new EmptyBorder(0,0,10,0)); // Add 10px gap on 
+                                                           // bottom
       this.contentPane.add(this.welcomeLabel);
       this.contentPane.add(this.mainPanel);
       this.contentPane.add(this.okButton);
@@ -131,5 +137,20 @@ import javax.swing.border.*;
       this.courseCode.setEnabled(false);
       this.codeLabel.setEnabled(false);
       this.fileButton.setEnabled(true);
+    }
+    
+    /** Gets the Course that was chosen or created by the user. Will return 
+     * null if the user has not yet chosen their course
+     * @return  the user's selected course
+     */
+    public Course getCourse() {
+      return this.course;
+    }
+    
+    /** Sets this class's Course to the given one. Used by StartupAcceptHandler
+     * @param  course    the new Course
+     */
+    public void setCourse(Course course) {
+      this.course = course;
     }
  }
