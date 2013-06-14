@@ -104,13 +104,19 @@ import javax.swing.border.*;
     private void registerControllers() {
     }
     
-    /** Disable all components within the loadCoursePanel
+    /** Disable all components within the loadCoursePanel and enable 
+     * components in newCoursePanel
      */
     public void disableLoad() {
+      this.fileButton.setEnabled(false);
+      this.courseCode.setEnabled(true);
     }
     
-    /** Disable all components within the newCoursePanel
+    /** Disable all components within the newCoursePanel ande enable components
+     * in loadCoursePanel
      */
     public void disableNew() {
+      this.courseCode.setEnabled(false);
+      this.fileButton.setEnabled(true);
     }
  }
