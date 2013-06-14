@@ -14,6 +14,7 @@ public class FileManager {
       // Create output streams for the given filename
       FileOutputStream fo = new FileOutputStream(filename);
       ObjectOutputStream out = new ObjectOutputStream(fo);
+      // Write and close files
       out.writeObject(course);
       out.close();
       fo.close();
@@ -36,6 +37,31 @@ public class FileManager {
     }
   }
   
+  /** Load a course from the specified file
+   * @param fileName    the file to read from
+   * @return            the loaded course
+   */
   public static Course loadCourse(String fileName) {
+    try {
+      // Create input streams for the given filename
+      FileInputStream fi = new FileInputStream(fileName);
+      ObjectInputStream in = new ObjectInputStream(fi);
+      // Read and close files
+      Course course = (Course)in.readObject();
+      in.close();
+      fi.close();
+    }
+    catch(FileNotFoundException e) {
+      // Alert the user and exit
+      JOptionPane.showMessageDialog(null, "Error opening \'" + fileName
+              + "\': file not found, is a directory, or could not be opened",
+              "Error reading file", JOptionPane.ERROR_MESSAGE);
+      System.exit(1);
+    }
+    catch(IOException e) {
+      JOptionPane.showMessageDialog(null, "Error opening \'" + fileName
+              + "\': " + e.getMessage(), "Error reading file", 
+              JOptionPane.ERROR_MESSAGE);
+    }
   }
 }
