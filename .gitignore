@@ -3,6 +3,7 @@
 *.swp
 journal.txt
 *~*
+StartupTest.java
 
 # Package Files #
 *.jar
