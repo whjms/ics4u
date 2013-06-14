@@ -3,6 +3,7 @@ import javax.swing.*;
 
 /** Handler that is used to enable and disable components in StartupWindow when
  * one of the radio buttons is clicked.
+ * @author Qasim Ali
  */
 public class StartupButtonHandler implements ActionListener {
   private JRadioButton button; // Radio button to watch for events
