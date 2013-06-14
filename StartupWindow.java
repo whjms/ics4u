@@ -107,9 +107,12 @@ import javax.swing.border.*;
      * button
      */
     private void registerControllers() {
-      this.loadButton.addActionListener(new StartupButtonHandler(this.loadButton, this));
-      this.newButton.addActionListener(new StartupButtonHandler(this.newButton, this));
-      this.fileButton.addActionListener(new StartupFileButtonHandler(this.fileName, this));
+      this.loadButton.addActionListener(new StartupButtonHandler(
+              this.loadButton, this));
+      this.newButton.addActionListener(new StartupButtonHandler(this.newButton, 
+              this));
+      this.fileButton.addActionListener(new StartupFileButtonHandler(
+              this.fileName, this));
     }
     
     /** Disable all components within the loadCoursePanel and enable 
