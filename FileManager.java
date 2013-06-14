@@ -12,7 +12,7 @@ public class FileManager {
   public static void saveCourse(String fileName, Course course) {
     try {
       // Create output streams for the given filename
-      FileOutputStream fo = new FileOutputStream(filename);
+      FileOutputStream fo = new FileOutputStream(fileName);
       ObjectOutputStream out = new ObjectOutputStream(fo);
       // Write and close files
       out.writeObject(course);
@@ -42,12 +42,13 @@ public class FileManager {
    * @return            the loaded course
    */
   public static Course loadCourse(String fileName) {
+    Course course = null;
     try {
       // Create input streams for the given filename
       FileInputStream fi = new FileInputStream(fileName);
       ObjectInputStream in = new ObjectInputStream(fi);
       // Read and close files
-      Course course = (Course)in.readObject();
+      course = (Course)in.readObject();
       in.close();
       fi.close();
     }
@@ -63,5 +64,15 @@ public class FileManager {
               + "\': " + e.getMessage(), "Error reading file", 
               JOptionPane.ERROR_MESSAGE);
     }
+    // This exception should never be thrown
+    catch(ClassNotFoundException e) {
+      JOptionPane.showMessageDialog(null, "Cannot find Course class.", "Oh no",
+              JOptionPane.ERROR_MESSAGE);
+      System.out.println("Exception message: " + e.getMessage());
+      System.out.println("=======Stack trace=======");
+      e.printStackTrace();
+    }
+    
+    return course;
   }
 }
