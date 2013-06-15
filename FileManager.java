@@ -33,6 +33,7 @@ public class FileManager {
       JOptionPane.showMessageDialog(null, "Error writing \'" + fileName
               + "\': " + e.getMessage(), "Error writing file", 
               JOptionPane.ERROR_MESSAGE);
+      e.printStackTrace();
       System.exit(1);
     }
   }
