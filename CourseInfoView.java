@@ -213,13 +213,13 @@ public class CourseInfoView extends JPanel {
    */
   public void updateWeightings() {
     this.weightingLabels[Course.C].setText("CO: "
-            + this.course.getCourseWeightings(Course.C));
+            + this.course.getCourseWeighting(Course.C));
     this.weightingLabels[Course.K].setText("K/U: "
-            + this.course.getCourseWeightings(Course.K));
+            + this.course.getCourseWeighting(Course.K));
     this.weightingLabels[Course.T].setText("T/I: "
-            + this.course.getCourseWeightings(Course.T));
+            + this.course.getCourseWeighting(Course.T));
     this.weightingLabels[Course.A].setText("AP: "
-            + this.course.getCourseWeightings(Course.A));
+            + this.course.getCourseWeighting(Course.A));
   }
   
   /** Update labels to reflect the Course's data

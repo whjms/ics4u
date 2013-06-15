@@ -46,13 +46,13 @@ public class CourseWeightingEditor extends JDialog {
     
     // Initialize fields with values from the course
     this.categoryFields[Course.C] = new JTextField(Integer.toString(
-            this.course.getCourseWeightings(Course.C)));
+            this.course.getCourseWeighting(Course.C)));
     this.categoryFields[Course.T] = new JTextField(Integer.toString(
-            this.course.getCourseWeightings(Course.T)));
+            this.course.getCourseWeighting(Course.T)));
     this.categoryFields[Course.A] = new JTextField(Integer.toString(
-            this.course.getCourseWeightings(Course.A)));
+            this.course.getCourseWeighting(Course.A)));
     this.categoryFields[Course.K] = new JTextField(Integer.toString(
-            this.course.getCourseWeightings(Course.K)));
+            this.course.getCourseWeighting(Course.K)));
             
     this.okButton = new JButton("OK");
   }

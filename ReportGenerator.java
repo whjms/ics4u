@@ -74,15 +74,15 @@ public class ReportGenerator {
     out.println("<head>");
     out.println("<title>Report for " + student.getNumber() + "</title>");
     //=====HEAD=====STYLE===== 
-    out.println("<style type=\"text/css>\"");
+    out.println("<style type=\"text/css\">");
     out.println("body {font-family:\"Arial\",\"DejaVu Sans\", sans-serif;}");
-    out.println("h3{font-size:14pt;font-weight:normal}");
+    out.println("h3{font-size:14pt;font-weight:normal;}");
     out.println("h1{font-weight:normal;}");
     out.println("h2{width:100%;font-size:13pt;border-bottom:1px solid black;font-weight:bold;}");
     out.println("table{border:1px solid black;border-collapse:collapse;width:100%;}");
     out.println("thead{font-weight:bold;border-bottom:2px solid black;background:#08f;color:#fff;}");
     out.println("td{border-left:1px solid black;border-right:1px solid black;text-align:center;}");
-    out.println("</style></head><body>");
+    out.println("</style>\n</head>\n<body>");
     //=====BODY=====
     //=====BODY=====INFO=====
     out.println("<h1>Student Information</h1>");
@@ -95,15 +95,15 @@ public class ReportGenerator {
     out.println("<h2>Course Weightings</h2>");
     out.println("<table><thead><td>K/U</td><td>T/I</td><td>AP</td><td>CO</td></thead>");
     out.println("<tr>");
-    out.println("<td>" + course.getCourseWeightings(Course.K) + "</td>");
-    out.println("<td>" + course.getCourseWeightings(Course.T) + "</td>");
-    out.println("<td>" + course.getCourseWeightings(Course.A) + "</td>");
-    out.println("<td>" + course.getCourseWeightings(Course.C) + "</td></tr></table>");
+    out.println("<td>" + course.getCourseWeighting(Course.K) + "</td>");
+    out.println("<td>" + course.getCourseWeighting(Course.T) + "</td>");
+    out.println("<td>" + course.getCourseWeighting(Course.A) + "</td>");
+    out.println("<td>" + course.getCourseWeighting(Course.C) + "</td></tr></table>");
     //=====BODY=====COURSE MARKS======
     out.println("<h2>Course Marks</h2>");
     out.println("<table><thead><td>Overall</td><td>K/U</td><td>T/I</td><td>AP</td><td>CO</td></thead>");
     out.println("<tr>");
-    out.println("<td>" + course.getStudentMark(student) + "</td>");
+    out.println("<td>" + course.getStudentMark(student.getNumber()) + "</td>");
     out.println("<td>" + student.getMark(Course.K) + "</td>");
     out.println("<td>" + student.getMark(Course.T) + "</td>");
     out.println("<td>" + student.getMark(Course.A) + "</td>");
