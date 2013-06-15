@@ -1,8 +1,23 @@
 /** The startup class. Contains the main method.
  */
+import javax.swing.*;
+
 public class Startup {
 	
 	public static void main (String args[]) {
+    try {
+      // Make application appear native (no difference on Linux, as Java only
+      // supports GTK
+      UIManager.setLookAndFeel(
+              UIManager.getSystemLookAndFeelClassName());
+    }
+    // System look and feel is always available, so these exceptions should not
+    // appear, and if it does, there's nothing we can do 
+    catch (UnsupportedLookAndFeelException e) { }
+    catch (ClassNotFoundException e) { }
+    catch (InstantiationException e) { }
+    catch (IllegalAccessException e) { }
+    
 		StartupWindow sw = new StartupWindow();
     Course course = null;  // Course to pass to MainWindow
     
