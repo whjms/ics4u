@@ -8,7 +8,7 @@ public class Startup {
     
     // Wait until the StartupWindow has a Course loaded/created. Ugly, but not
     // enough time to learn about the Swing event queue
-    while(sw.getCourse == null) {
+    while(sw.getCourse() == null) {
       try {
         Thread.sleep(1);
       }
