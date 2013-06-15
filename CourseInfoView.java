@@ -27,6 +27,11 @@ public class CourseInfoView extends JPanel {
   private JLabel courseMedian;
   private JLabel[] medianLabels;
   
+  // 'Course Weightings' section
+  private JPanel weightingPanel;
+  private JLabel[] weightingLabels;
+  private JButton weightingEditButton;
+  
   public CourseInfoView(Course course) { 
     super();
     this.course = course;
@@ -40,13 +45,46 @@ public class CourseInfoView extends JPanel {
     this.initMean();
     this.initMedian();
     this.initInfo();
-
+    this.initWeighting();
+    
     this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+    this.setBorder(new EmptyBorder(10, 10, 10, 10)); // 10px padding
     this.add(this.infoPanel);
+    this.add(this.weightingPanel);
     this.add(this.meanPanel);
     this.add(this.medianPanel);
   }
 
+  /** Initialize and lay out components for weighting section
+   */
+  private void initWeighting() {
+    // Initialize panel
+    this.weightingPanel = new JPanel();
+    this.weightingPanel.setLayout(new BoxLayout(this.weightingPanel,
+            BoxLayout.Y_AXIS));
+    // Labels
+    this.weightingLabels = new JLabel[4];
+    this.weightingLabels[Course.C] = new JLabel("CO: ");
+    this.weightingLabels[Course.T] = new JLabel("T/I: ");
+    this.weightingLabels[Course.A] = new JLabel("AP: ");
+    this.weightingLabels[Course.K] = new JLabel("K/U: ");
+    
+    this.weightingEditButton = new JButton("Edit...");
+    
+    // Lay out and add components
+    for(int i = 0; i < 4; i++) {
+      // Ensure labels are center aligned
+      this.weightingLabels[i].setAlignmentX(Component.CENTER_ALIGNMENT);
+      this.weightingPanel.add(weightingLabels[i]);
+    }
+    this.weightingEditButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+    this.weightingPanel.add(this.weightingEditButton);
+    this.weightingPanel.setBorder(BorderFactory.createTitledBorder(
+            "Course Weightings"));
+    // Prevent title from being cut off by adding empty component
+    this.weightingPanel.add(Box.createRigidArea(new Dimension(150, 0)));
+  }
+  
   /** Initialize and add components for median section 
    */
   private void initMedian() {
