@@ -9,7 +9,8 @@ import javax.swing.border.*;
   */
 public class CourseInfoView extends JPanel {
   private Course course; // Model
- 
+  private MainWindow mw;  // Application's main window. Used for modal dialog
+  
   // General course info 
   private JPanel infoPanel; // Contains general course info
   private JLabel nameLabel; // Displays the Course's name
@@ -32,11 +33,12 @@ public class CourseInfoView extends JPanel {
   private JLabel[] weightingLabels;
   private JButton weightingEditButton;
   
-  public CourseInfoView(Course course) { 
+  public CourseInfoView(Course course, MainWindow mw) { 
     super();
     this.course = course;
     this.initUI();
     this.update();
+    this.mw = mw;
   }
   
   /** Initializes UI components
@@ -81,8 +83,13 @@ public class CourseInfoView extends JPanel {
     this.weightingPanel.add(this.weightingEditButton);
     this.weightingPanel.setBorder(BorderFactory.createTitledBorder(
             "Course Weightings"));
+            
     // Prevent title from being cut off by adding empty component
     this.weightingPanel.add(Box.createRigidArea(new Dimension(150, 0)));
+    
+    // Add action listener for edit button
+    this.weightingEditButton.addActionListener(new CourseInfoEditController(
+            this.course, this.mainWindow));
   }
   
   /** Initialize and add components for median section 

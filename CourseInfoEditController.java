@@ -20,7 +20,7 @@ public class CourseInfoEditController implements ActionListener {
   /** Open a CourseWeightingEditor
    * @param e    the triggered event
    */
-  public void ActionPerformed(ActionEvent e) {
+  public void actionPerformed(ActionEvent e) {
     CourseWeightingEditor editor = new CourseWeightingEditor(this.course,
             this.mw);
   }
