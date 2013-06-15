@@ -89,7 +89,7 @@ public class CourseInfoView extends JPanel {
     
     // Add action listener for edit button
     this.weightingEditButton.addActionListener(new CourseInfoEditController(
-            this.course, this.mainWindow));
+            this.course, this.mw));
   }
   
   /** Initialize and add components for median section 

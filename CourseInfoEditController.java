@@ -22,6 +22,6 @@ public class CourseInfoEditController implements ActionListener {
    */
   public void actionPerformed(ActionEvent e) {
     CourseWeightingEditor editor = new CourseWeightingEditor(this.course,
-            this.mw);
+            this.mainWindow);
   }
 }
