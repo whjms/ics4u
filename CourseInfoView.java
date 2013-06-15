@@ -202,9 +202,23 @@ public class CourseInfoView extends JPanel {
             + this.course.getMedian(Course.T));
   }
 
+  /** Update course weighting labels
+   */
+  public void updateWeightings() {
+    this.weightingLabels[Course.C].setText("CO: "
+            + this.course.getCourseWeightings(Course.C));
+    this.weightingLabels[Course.K].setText("K/U: "
+            + this.course.getCourseWeightings(Course.K));
+    this.weightingLabels[Course.T].setText("T/I: "
+            + this.course.getCourseWeightings(Course.T));
+    this.weightingLabels[Course.A].setText("AP: "
+            + this.course.getCourseWeightings(Course.A));
+  }
+  
   /** Update labels to reflect the Course's data
    */
   public void update() {
+    this.updateWeightings();
     this.updateCourseInfo();
     this.updateMean();
     this.updateMedian();
