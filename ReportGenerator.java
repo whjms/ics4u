@@ -95,10 +95,10 @@ public class ReportGenerator {
     out.println("<h2>Course Weightings</h2>");
     out.println("<table><thead><td>K/U</td><td>T/I</td><td>AP</td><td>CO</td></thead>");
     out.println("<tr>");
-    out.println("<td>" + course.getCourseWeightings()[Course.K] + "</td>");
-    out.println("<td>" + course.getCourseWeightings()[Course.T] + "</td>");
-    out.println("<td>" + course.getCourseWeightings()[Course.A] + "</td>");
-    out.println("<td>" + course.getCourseWeightings()[Course.C] + "</td></tr></table>");
+    out.println("<td>" + course.getCourseWeightings(Course.K) + "</td>");
+    out.println("<td>" + course.getCourseWeightings(Course.T) + "</td>");
+    out.println("<td>" + course.getCourseWeightings(Course.A) + "</td>");
+    out.println("<td>" + course.getCourseWeightings(Course.C) + "</td></tr></table>");
     //=====BODY=====COURSE MARKS======
     out.println("<h2>Course Marks</h2>");
     out.println("<table><thead><td>Overall</td><td>K/U</td><td>T/I</td><td>AP</td><td>CO</td></thead>");
