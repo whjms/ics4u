@@ -30,9 +30,8 @@ import javax.swing.border.*;
                            // handler associated with the OK button
 
    public StartupWindow() {
-     this.course = null;
-     
      super("GRADEschool 2K13");
+     this.course = null;
      this.initUI();
      this.layoutUI();
      this.registerControllers();

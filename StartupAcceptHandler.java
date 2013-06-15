@@ -35,7 +35,7 @@ public class StartupAcceptHandler implements ActionListener {
     // The load button is selected, so load a course
     if(this.loadButton.isSelected()) {
       String filename = this.fileField.getText();
-      this.window.setCourse(FileManager.loadCourse(filename);
+      this.window.setCourse(FileManager.loadCourse(filename));
     }
     // The 'new course' button must be selected, so create a new course
     else {
