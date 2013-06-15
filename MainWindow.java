@@ -19,27 +19,7 @@ public class MainWindow extends JFrame{
     // Make file save popup appear when window closes
     this.addWindowListener(new MainWindowExitAdapter(this.course));
   }
-  
-  public static void main(String[] args) { 
-    StartupWindow w = new StartupWindow();
-    Course course = null;
-    // Wait until course is set. Ugly, I know
-    while(w.getCourse() == null) {
-      try {
-        Thread.sleep(1);
-      }
-      catch(InterruptedException e) {
-        System.out.println("Something went wrong...");
-        e.printStackTrace();
-      }
-    }
-    course = w.getCourse();
-    w.dispose();
 
-    MainWindow mw = new MainWindow(course);
-    course.setView(mw);
-  }
-  
   /** Initialize and layout UI components
    */
   private void initUI() {
