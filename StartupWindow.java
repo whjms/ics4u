@@ -31,6 +31,7 @@ import javax.swing.border.*;
 
    public StartupWindow() {
      super("GRADEschool 2K13");
+     //System.out.println(this.getClass().getClassLoader());
      this.course = null;
      this.initUI();
      this.layoutUI();
@@ -86,7 +87,12 @@ import javax.swing.border.*;
       this.mainPanel.setLayout(mainLayout);
       this.contentPane.setLayout(new BoxLayout(this.contentPane, 
               BoxLayout.Y_AXIS));
-              
+      
+      // Create and add logo component
+      ImageComponent logo = new ImageComponent(new ImageIcon("logo.png"));
+      logo.setAlignmentX(Component.CENTER_ALIGNMENT);
+      this.contentPane.add(logo);
+      
       this.mainPanel.add(this.loadButton);
       this.mainPanel.add(new JPanel()); // Empty panel used for spacing
       this.mainPanel.add(this.fileButton);
