@@ -32,7 +32,7 @@ public class CourseWeightingAcceptController implements ActionListener {
       
       for(int i = 0; i < 4; i++) {
         weights[i] = Integer.parseInt(fields[i].getText());
-        sum += weights[i]
+        sum += weights[i];
         
         // Make sure weightings are >= 0
         if(weights[i] < 0)
