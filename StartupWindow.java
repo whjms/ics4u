@@ -118,6 +118,8 @@ import javax.swing.border.*;
               this));
       this.fileButton.addActionListener(new StartupFileButtonHandler(
               this.fileName, this));
+      this.okButton.addActionListener(new StartupAcceptHandler(this.loadButton,
+              this.fileName, this.courseCode, this));
     }
     
     /** Disable all components within the loadCoursePanel and enable 
