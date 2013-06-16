@@ -18,6 +18,10 @@ public class Startup {
     catch (InstantiationException e) { }
     catch (IllegalAccessException e) { }
     
+    // enable anti-aliased text (if the system has it enabled)
+    System.setProperty("awt.useSystemAAFontSettings","on");
+    System.setProperty("swing.aatext", "true");
+    
 		StartupWindow sw = new StartupWindow();
     Course course = null;  // Course to pass to MainWindow
     
