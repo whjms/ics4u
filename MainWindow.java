@@ -19,7 +19,6 @@ public class MainWindow extends JFrame{
     this.initUI();
     // Make file save popup appear when window closes
     this.addWindowListener(new MainWindowExitAdapter(this.course));
-    this.setIconImage(icon.getImage());
   }
 
   /** Initialize and layout UI components
