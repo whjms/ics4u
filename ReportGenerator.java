@@ -30,9 +30,10 @@ public class ReportGenerator {
         student = s;
     }
     
-    // Create a new File within the user-chosen directory
-    File outputFile = new File(ReportGenerator.getDirectory() +
-            studentNumber + ".html");
+    // Create a new File, appending .html to the user-specified filename
+    File outputFile = new File(ReportGenerator.getFile().getAbsolutePath() +
+            ".html");
+    System.out.println(outputFile.getAbsolutePath());
             
     PrintWriter out = null;
     try {
@@ -42,25 +43,23 @@ public class ReportGenerator {
     catch(FileNotFoundException e) {
       JOptionPane.showMessageDialog(null, "Error saving report: file cannot be"
               + " created.", "Error", JOptionPane.ERROR_MESSAGE);
-      System.exit(1);
+      return;
     }
-    
     ReportGenerator.writeReport(out, student, course);
     out.close();
   }
   
-  /** Opens a file chooser that allows the user to select a directory to save
+  /** Opens a file chooser that allows the user to select a file to save
    * the report to
-   * @return    the user-specified directory
+   * @return    the user-specified file
    */
-  private static String getDirectory() {
+  private static File getFile() {
     JFileChooser fc = new JFileChooser();
-    fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
     int result = fc.showSaveDialog(null);
     if(result != JFileChooser.APPROVE_OPTION)
       return null;
     else
-      return fc.getSelectedFile().getAbsolutePath();
+      return fc.getSelectedFile();
   }
   
   /** Output the HTML using the given PrintWriter
