@@ -33,7 +33,6 @@ public class ReportGenerator {
     // Create a new File, appending .html to the user-specified filename
     File outputFile = new File(ReportGenerator.getFile().getAbsolutePath() +
             ".html");
-    System.out.println(outputFile.getAbsolutePath());
             
     PrintWriter out = null;
     try {
