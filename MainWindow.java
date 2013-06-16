@@ -14,10 +14,12 @@ public class MainWindow extends JFrame{
    * @param course    the Course to get data from
    */
   public MainWindow(Course course) { 
+    super("GRADEschool 2K13 - " + course.getCode());
     this.course = course;
     this.initUI();
     // Make file save popup appear when window closes
     this.addWindowListener(new MainWindowExitAdapter(this.course));
+    this.setIconImage(icon.getImage());
   }
 
   /** Initialize and layout UI components
@@ -30,9 +32,14 @@ public class MainWindow extends JFrame{
     this.info = new CourseInfoView(this.course, this);
     this.atab = new AssignmentTab(this.course, this);
     this.stab = new StudentTab(this.course, this);
+    
+    ImageIcon studentIcon = new ImageIcon("students.png");
+    ImageIcon assignmentIcon = new ImageIcon("assignments.png");
+    
+    // Create and lay out tabs, adding tooltips and icons
     JTabbedPane tab = new JTabbedPane();
-    tab.add("Assignments", this.atab);
-    tab.add("Students", this.stab);
+    tab.addTab("Assignments", assignmentIcon, this.atab, "View all assignments");
+    tab.addTab("Students", studentIcon, this.stab, "View information for all students");
     
     this.contentPane.add(this.info);
     this.contentPane.add(tab);
