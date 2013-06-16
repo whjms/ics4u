@@ -37,8 +37,7 @@ import javax.swing.border.*;
      this.layoutUI();
      this.registerControllers();
      this.pack();
-     // This window will only be closed when the user clicks the 'ok' button
-     this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
      
      // Assume that the user wants to load a course
      this.disableNew();

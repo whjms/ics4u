@@ -19,6 +19,7 @@ public class ReportGenerator {
     if(studentNumber.equals("000000")) {
       System.out.println("Error generating report for \'" + name + "\': course"
               + " returned default value.");
+      return; // Since the student can't be found, abort
     }
     
     Student student = null;
@@ -30,7 +31,7 @@ public class ReportGenerator {
     }
     
     // Create a new File within the user-chosen directory
-    File outputFile = new File(ReportGenerator.getDirectory(),
+    File outputFile = new File(ReportGenerator.getDirectory() +
             studentNumber + ".html");
             
     PrintWriter out = null;
@@ -52,14 +53,14 @@ public class ReportGenerator {
    * the report to
    * @return    the user-specified directory
    */
-  private static File getDirectory() {
+  private static String getDirectory() {
     JFileChooser fc = new JFileChooser();
     fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
     int result = fc.showSaveDialog(null);
     if(result != JFileChooser.APPROVE_OPTION)
       return null;
     else
-      return fc.getCurrentDirectory();
+      return fc.getSelectedFile().getAbsolutePath();
   }
   
   /** Output the HTML using the given PrintWriter

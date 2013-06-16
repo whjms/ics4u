@@ -12,8 +12,10 @@ public class CourseWeightingEditor extends JDialog {
   private JPanel contentPane;
   private JLabel[] categoryLabels;  // Contains labels for category fields
   private JTextField[] categoryFields;  // Contains category fields
+  private JPanel buttonPanel;
   private JButton okButton;
-
+  private JButton cancelButton;
+  
   /** Creates an editor for the specified course 
    * @param course    the course to edit 
    */
@@ -53,13 +55,17 @@ public class CourseWeightingEditor extends JDialog {
             this.course.getCourseWeighting(Course.A)));
     this.categoryFields[Course.K] = new JTextField(Integer.toString(
             this.course.getCourseWeighting(Course.K)));
-            
+    
+    this.buttonPanel = new JPanel();
     this.okButton = new JButton("OK");
+    this.cancelButton = new JButton("Cancel");
   }
   
   private void layoutUI() {
     this.mainPanel.setLayout(new GridLayout(4, 2));  // content pane is 4x2
-    
+    this.buttonPanel.setLayout(new BoxLayout(this.buttonPanel,
+            BoxLayout.X_AXIS));
+            
     // Add elements row by row - row 1
     this.mainPanel.add(this.categoryLabels[Course.C]);
     this.mainPanel.add(this.categoryFields[Course.C]);
@@ -76,16 +82,22 @@ public class CourseWeightingEditor extends JDialog {
     this.contentPane.setLayout(new BoxLayout(this.contentPane, 
             BoxLayout.Y_AXIS));
     
+    this.buttonPanel.add(this.okButton);
+    this.buttonPanel.add(this.cancelButton);
+    
     this.contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));  //10px padding
     this.contentPane.add(this.mainPanel);
-    this.contentPane.add(this.okButton);
+    this.contentPane.add(this.buttonPanel);
   }
   
+  /** Register handlers for buttons
+   */
   private void registerControllers() {
     CourseWeightingAcceptController okController = 
             new CourseWeightingAcceptController(this.course,
                     this.categoryFields, this);
     
     this.okButton.addActionListener(okController);
+    this.cancelButton.addActionListener(new CancelController(this));
   }
 } 
