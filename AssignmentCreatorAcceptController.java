@@ -75,7 +75,7 @@ public class AssignmentCreatorAcceptController implements ActionListener{
       }
 
       this.course.createAssignment(this.nameField.getText(), 
-              totalVals[Course.K], totalVals[Course.A], totalVals[Course.T],
+              totalVals[Course.K], totalVals[Course.T], totalVals[Course.A],
               totalVals[Course.C]);
       this.course.setWeightings(this.nameField.getText(), weightVals);
 
