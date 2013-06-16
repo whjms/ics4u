@@ -25,6 +25,14 @@ import java.io.*;
    */
   public void actionPerformed(ActionEvent e) {
     JFileChooser chooser = new JFileChooser();
+    // Filter out non-course files. Must be explicit because java.io also has a
+    // FileFilter
+    javax.swing.filechooser.FileFilter filter = 
+            new javax.swing.filechooser.FileNameExtensionFilter(
+                    "Course files (.course)", "course");
+                    
+    chooser.setFileFilter(filter);
+    
     int result = chooser.showOpenDialog(this.window);  // Disable the 
                                                        // StartupWindow
     // Only alter the text field if the user clicked 'OK' on the file chooser
