@@ -32,8 +32,12 @@ public class MainWindow extends JFrame{
     this.atab = new AssignmentTab(this.course, this);
     this.stab = new StudentTab(this.course, this);
     
-    ImageIcon studentIcon = new ImageIcon("students.png");
-    ImageIcon assignmentIcon = new ImageIcon("assignments.png");
+    // Load images from images subdirectory - use getClass().getResource() to
+    // load files from images directory in the packaged JAR file
+    ImageIcon studentIcon = new ImageIcon(this.getClass().getResource(
+            "images/students.png"));
+    ImageIcon assignmentIcon = new ImageIcon(this.getClass().getResource(
+            "images/assignments.png"));
     
     // Create and lay out tabs, adding tooltips and icons
     JTabbedPane tab = new JTabbedPane();

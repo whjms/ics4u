@@ -88,7 +88,7 @@ import javax.swing.border.*;
               BoxLayout.Y_AXIS));
       
       // Create and add logo component
-      ImageComponent logo = new ImageComponent(new ImageIcon("logo.png"));
+      ImageComponent logo = new ImageComponent(new ImageIcon(this.getClass().getResource("images/logo.png")));
       logo.setAlignmentX(Component.CENTER_ALIGNMENT);
       this.contentPane.add(logo);
       
